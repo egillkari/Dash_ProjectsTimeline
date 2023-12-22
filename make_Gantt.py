@@ -614,6 +614,6 @@ def update_graph(color_column, selected_location_categories, selected_types, sel
 
 # This is just for demonstration, you can integrate it with your main app script.
 if __name__ == '__main__':
-    app.run_server(debug=True)
-    #app.run_server(debug=True, host='0.0.0.0')
+    #app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0')
 
