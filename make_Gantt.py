@@ -36,7 +36,7 @@ last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if no
 
 # Initialize the app
 app = Dash(__name__)
-server= app.server
+#server= app.server
 
 # Define custom color maps
 phase_colors = {
