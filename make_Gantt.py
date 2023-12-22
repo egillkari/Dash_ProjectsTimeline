@@ -8,35 +8,40 @@ from datetime import datetime
 import plotly.graph_objs as go
 
 
-try:
-    # Read data from formatted_data.txt
-    with open("formatted_data.txt", "r") as file:
-        formatted_lines = file.readlines()
-
-    # Split lines and create DataFrame
-    data = [line.strip().split(", ") for line in formatted_lines]
-    df = pd.DataFrame(data, columns=["Last Updated Date", "Location","Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"])
-
-    # Convert 'Start', 'Finish', and 'Last Updated Date' columns to datetime and sort
-    df['Start'] = pd.to_datetime(df['Start'])
-    df['Finish'] = pd.to_datetime(df['Finish'])
-    df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'])
-    df = df.sort_values(by="Start", ascending=False)
-
-    # Aggregate start and finish times for each task and merge
-    project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'})
-    df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
-
-except Exception as e:
-    print(f"An error occurred: {e}")
-    df = pd.DataFrame()  # Create an empty DataFrame if there's an error
-
-# Update the last updated date in the app layout
-last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
 
 # Initialize the app
 app = Dash(__name__)
-#server= app.server
+server = app.server
+
+# Initialize an empty DataFrame
+df = pd.DataFrame()
+
+try:
+    # Read data from formatted_data.txt with explicit encoding
+    df = pd.read_csv("formatted_data.txt", encoding='utf-8-sig', parse_dates=[0, 7, 8], dayfirst=True,
+                     names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
+                     skipinitialspace=True)
+
+    # Sort the DataFrame by 'Start' date
+    df.sort_values(by="Start", ascending=False, inplace=True)
+
+    # Check if the DataFrame is not empty and columns exist
+    if not df.empty and {'Last Updated Date', 'Start', 'Finish', 'Task'}.issubset(df.columns):
+        # Aggregate start and finish times for each task and merge
+        project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'}).reset_index()
+        df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
+        # Update the last updated date in the app layout
+        last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d")
+    else:
+        last_updated_date_str = "N/A"
+
+except Exception as e:
+    last_updated_date_str = "N/A"
+    print(f"An error occurred: {e}")
+
+# Initialize the app
+app = Dash(__name__)
+server= app.server
 
 # Define custom color maps
 phase_colors = {
@@ -77,19 +82,12 @@ filter_container_style = {
     'flexDirection': 'column',
     'justifyContent': 'flex-start',  # Align items to the top
     'paddingRight': '10px',
-    'minWidth': '150px'
+    'minWidth': '110px',
+    #'maxWidth': '120px'
 }
-# Define styles for the sidebar and the content (Gantt chart)
-sidebar_style = {
-    'position': 'fixed',
-    'top': 60,  # Adjust the top value based on your layout
-    'left': 5,
-    'bottom': 0,
-    'width': '20%',
-    'padding': '20px 10px',
-    'background-color': '#f8f9fa',
-    'overflow': 'auto'
-}
+
+
+
 # Filters and sorting options container style
 filter_sort_container_style = {
     'display': 'flex',
@@ -614,6 +612,6 @@ def update_graph(color_column, selected_location_categories, selected_types, sel
 
 # This is just for demonstration, you can integrate it with your main app script.
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    app.run_server(debug=True, host='0.0.0.0')
+    app.run_server(debug=True)
+    #app.run_server(debug=True, host='0.0.0.0')
 
