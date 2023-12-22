@@ -9,6 +9,7 @@ import plotly.graph_objs as go
 
 
 
+
 # Initialize the app
 app = Dash(__name__)
 server = app.server
@@ -17,31 +18,25 @@ server = app.server
 df = pd.DataFrame()
 
 try:
-    # Read data from formatted_data.txt with explicit encoding
-    df = pd.read_csv("formatted_data.txt", encoding='utf-8-sig', parse_dates=[0, 7, 8], dayfirst=True,
-                     names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
-                     skipinitialspace=True)
+    # Read data from formatted_data.txt with specified encoding
+    df = pd.read_csv("formatted_data.txt", encoding='ISO-8859-1', header=None,
+                     names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"])
+
+    # Convert 'Start', 'Finish', and 'Last Updated Date' columns to datetime
+    df['Start'] = pd.to_datetime(df['Start'], errors='coerce')
+    df['Finish'] = pd.to_datetime(df['Finish'], errors='coerce')
+    df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'], errors='coerce')
 
     # Sort the DataFrame by 'Start' date
     df.sort_values(by="Start", ascending=False, inplace=True)
 
-    # Check if the DataFrame is not empty and columns exist
-    if not df.empty and {'Last Updated Date', 'Start', 'Finish', 'Task'}.issubset(df.columns):
-        # Aggregate start and finish times for each task and merge
-        project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'}).reset_index()
-        df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
-        # Update the last updated date in the app layout
-        last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d")
-    else:
-        last_updated_date_str = "N/A"
-
 except Exception as e:
-    last_updated_date_str = "N/A"
     print(f"An error occurred: {e}")
+    df = pd.DataFrame()  # Create an empty DataFrame if there's an error
 
-# Initialize the app
-app = Dash(__name__)
-server= app.server
+# Update the last updated date in the app layout
+last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
+
 
 # Define custom color maps
 phase_colors = {
