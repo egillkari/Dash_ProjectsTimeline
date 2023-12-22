@@ -2,4 +2,3 @@ dash==2.14.0
 pandas
 plotly
 gunicorn
-dash-bootstrap-components
