@@ -7,34 +7,50 @@ import plotly.express as px
 from datetime import datetime
 import plotly.graph_objs as go
 
-
 try:
-    # Read data from formatted_data.txt
-    with open("formatted_data.txt", "r") as file:
-        formatted_lines = file.readlines()
 
-    # Split lines and create DataFrame
-    data = [line.strip().split(", ") for line in formatted_lines]
-    df = pd.DataFrame(data, columns=["Last Updated Date", "Location","Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"])
-    print(df)
+    # Read data from formatted_data.txt with specified encoding
+    df = pd.read_csv("formatted_data.txt", encoding='ISO-8859-1', header=None,
+                    names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
+                    dtype={"Start": "string", "Finish": "string","Last Updated Date": "string", "Location": "string", "Type": "string", "Task": "string", "Phase": "string", "PM": "string", "Tier": "string",})
+    # Strip leading and trailing spaces from 'Start' and 'Finish' columns
+    df['Last Updated Date'] = df['Last Updated Date'].str.strip()
+    df['Location'] = df['Location'].str.strip()    
+    df['Type'] = df['Type'].str.strip()
+    df['Task'] = df['Task'].str.strip()    
+    df['Phase'] = df['Phase'].str.strip()
+    df['PM'] = df['PM'].str.strip()    
+    df['Tier'] = df['Tier'].str.strip()
+    df['Start'] = df['Start'].str.strip()
+    df['Finish'] = df['Finish'].str.strip()
 
-    # Convert 'Start', 'Finish', and 'Last Updated Date' columns to datetime and sort
+    # Convert 'Start' and 'Finish' to datetime
     df['Start'] = pd.to_datetime(df['Start'])
     df['Finish'] = pd.to_datetime(df['Finish'])
+
+    ## Reformat 'Start' and 'Finish' to 'DD-MMM-YY' string format
+    #df['Start'] = df['Start'].dt.strftime('%d-%b-%y')
+    #df['Finish'] = df['Finish'].dt.strftime('%d-%b-%y')
+    # Convert 'Last Updated Date' to datetime
     df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'])
     df = df.sort_values(by="Start", ascending=False)
 
     # Aggregate start and finish times for each task and merge
     project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'})
     df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
+    print(type(df))
 
 except Exception as e:
     print(f"An error occurred: {e}")
     df = pd.DataFrame()  # Create an empty DataFrame if there's an error
+# Rest of your code...
+
 
 # Update the last updated date in the app layout
 last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
+
 print(df)
+# Rest of your code...
 # Initialize the app
 app = Dash(__name__)
 server = app.server
