@@ -8,27 +8,25 @@ from datetime import datetime
 import plotly.graph_objs as go
 
 
-
-
-# Initialize the app
-app = Dash(__name__)
-server = app.server
-
-# Initialize an empty DataFrame
-df = pd.DataFrame()
-
 try:
-    # Read data from formatted_data.txt with specified encoding
-    df = pd.read_csv("formatted_data.txt", encoding='ISO-8859-1', header=None,
-                     names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"])
+    # Read data from formatted_data.txt
+    with open("formatted_data.txt", "r") as file:
+        formatted_lines = file.readlines()
 
-    # Convert 'Start', 'Finish', and 'Last Updated Date' columns to datetime
-    df['Start'] = pd.to_datetime(df['Start'], errors='coerce')
-    df['Finish'] = pd.to_datetime(df['Finish'], errors='coerce')
-    df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'], errors='coerce')
+    # Split lines and create DataFrame
+    data = [line.strip().split(", ") for line in formatted_lines]
+    df = pd.DataFrame(data, columns=["Last Updated Date", "Location","Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"])
+    print(df)
 
-    # Sort the DataFrame by 'Start' date
-    df.sort_values(by="Start", ascending=False, inplace=True)
+    # Convert 'Start', 'Finish', and 'Last Updated Date' columns to datetime and sort
+    df['Start'] = pd.to_datetime(df['Start'])
+    df['Finish'] = pd.to_datetime(df['Finish'])
+    df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'])
+    df = df.sort_values(by="Start", ascending=False)
+
+    # Aggregate start and finish times for each task and merge
+    project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'})
+    df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
 
 except Exception as e:
     print(f"An error occurred: {e}")
@@ -36,7 +34,10 @@ except Exception as e:
 
 # Update the last updated date in the app layout
 last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
-
+print(df)
+# Initialize the app
+app = Dash(__name__)
+server = app.server
 
 # Define custom color maps
 phase_colors = {
