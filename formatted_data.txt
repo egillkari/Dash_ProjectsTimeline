@@ -1,16 +1,16 @@
 2023-12-14, Terminals, Building, SLN18 - East Wing, Stage 2, Brynjar Vatnsdal, 1, 01-Oct-21, 10-Jun-22
 2023-12-14, Terminals, Building, SLN21 - SE, Stage 2, Brynjar Vatnsdal, 1, 02-Aug-21, 31-Mar-23
 2023-12-14, Terminals, Strategies and Plans, Baggage MP, Stage 2, xx, 3, 28-Feb-23, 28-Feb-23
-2023-12-14, Terminals, Building, Customs Hall, Stage 1, Benedikt Magnússon, 3, 30-Jun-23, 05-Sep-23
-2023-12-14, Terminals, Building, Customs Hall, Stage 2, Benedikt Magnússon, 3, 12-Sep-23, 17-Mar-26
-2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 0, Benedikt Magnússon, 3, 20-Jun-23, 20-Jun-23
-2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 1, Benedikt Magnússon, 3, 02-Feb-26, 21-Apr-26
-2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 2, Benedikt Magnússon, 3, 30-Apr-26, 20-Oct-26
-2023-12-14, Terminals, Building, FWT22 - Furniture Works, Stage 1, Ester Jónsdóttir & Bruno Clark, 3, 25-Sep-23, 19-Dec-23
-2023-12-14, Terminals, Building, FWT22 - Furniture Works, Stage 2, Ester Jónsdóttir & Bruno Clark, 3, 10-Jan-24, 18-Jun-24
+2023-12-14, Terminals, Building, Customs Hall, Stage 1, Benedikt MagnÃºsson, 3, 30-Jun-23, 05-Sep-23
+2023-12-14, Terminals, Building, Customs Hall, Stage 2, Benedikt MagnÃºsson, 3, 12-Sep-23, 17-Mar-26
+2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 0, Benedikt MagnÃºsson, 3, 20-Jun-23, 20-Jun-23
+2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 1, Benedikt MagnÃºsson, 3, 02-Feb-26, 21-Apr-26
+2023-12-14, Terminals, Strategies and Plans, Non-Schengen Unsecure, Stage 2, Benedikt MagnÃºsson, 3, 30-Apr-26, 20-Oct-26
+2023-12-14, Terminals, Building, FWT22 - Furniture Works, Stage 1, Ester JÃ³nsdÃ³ttir & Bruno Clark, 3, 25-Sep-23, 19-Dec-23
+2023-12-14, Terminals, Building, FWT22 - Furniture Works, Stage 2, Ester JÃ³nsdÃ³ttir & Bruno Clark, 3, 10-Jan-24, 18-Jun-24
 2023-12-14, Terminals, Building, FWT22 - Furniture Works, Procurement, xx, 3, 17-Jul-24, 12-Sep-24
-2023-12-14, Terminals, Building, Re-Design Commercial Area South, Stage 1, Benedikt Magnússon, 2, 02-Feb-26, 21-Apr-26
-2023-12-14, Terminals, Building, Re-Design Commercial Area South, Stage 2, Benedikt Magnússon, 2, 30-Apr-26, 20-Oct-26
+2023-12-14, Terminals, Building, Re-Design Commercial Area South, Stage 1, Benedikt MagnÃºsson, 2, 02-Feb-26, 21-Apr-26
+2023-12-14, Terminals, Building, Re-Design Commercial Area South, Stage 2, Benedikt MagnÃºsson, 2, 30-Apr-26, 20-Oct-26
 2023-12-14, Terminals, Building, East Pier, Stage 0, Brynjar Vatnsdal, 1, 01-Jul-22, 13-Jan-23
 2023-12-14, Terminals, Building, East Pier, Stage 1, Brynjar Vatnsdal, 1, 16-Jan-23, 20-Feb-24
 2023-12-14, Terminals, Building, East Pier, Stage 2, Brynjar Vatnsdal, 1, 21-Feb-24, 20-Aug-24
@@ -20,54 +20,54 @@
 2023-12-14, Terminals, Building, Security Second Floor Improvements, Stage 0, xx, 3, 02-Mar-26, 15-Apr-26
 2023-12-14, Terminals, Building, Security Second Floor Improvements, Stage 1, xx, 3, 16-Apr-26, 16-Jun-26
 2023-12-14, Terminals, Building, Security Second Floor Improvements, Stage 2, xx, 3, 25-Jun-26, 17-Nov-26
-2023-12-14, Terminals, Building, Office Space EW, Stage 2, Gísli Guðmundsson, 3, 01-Sep-23, 22-Dec-23
+2023-12-14, Terminals, Building, Office Space EW, Stage 2, GÃ­sli GuÃ°mundsson, 3, 01-Sep-23, 22-Dec-23
 2023-12-14, Airfield, Civil, NTA22 - SLN & East Pier Apron, Stage 2, Brynjar Vatnsdal, 2, 22-Feb-22, 09-May-22
 2023-12-14, Airfield, Civil, NTA22 - SLN & East Pier Apron, Stage 2, Brynjar Vatnsdal, 2, 01-Feb-22, 30-Jun-22
 2023-12-14, Airfield, Civil, NTA22 - SLN & East Pier Apron, Stage 2, Brynjar Vatnsdal, 2, 02-May-22, 20-Jun-22
 2023-12-14, Airfield, Civil, NTA22 - SLN & East Pier Apron, Stage 2, Brynjar Vatnsdal, 2, 08-Jan-24, 18-Jun-24
-2023-12-14, Airfield, Civil, Taxiway Bravo, Stage 2, Benedikt Magnússon, 1, 30-Jun-23, 17-Oct-23
-2023-12-14, Airfield, Civil, De-Icing, Stage 2, Benedikt Magnússon, 1, 30-Jun-23, 17-Oct-23
+2023-12-14, Airfield, Civil, Taxiway Bravo, Stage 2, Benedikt MagnÃºsson, 1, 30-Jun-23, 17-Oct-23
+2023-12-14, Airfield, Civil, De-Icing, Stage 2, Benedikt MagnÃºsson, 1, 30-Jun-23, 17-Oct-23
 2023-12-14, Airfield, Utilities, COM23 - INT COM Site, Stage 0, xx, 2, 01-Apr-26, 20-May-26
 2023-12-14, Airfield, Utilities, COM23 - INT COM Site, Stage 1, xx, 2, 21-May-26, 21-Jul-26
 2023-12-14, Airfield, Utilities, COM23 - INT COM Site, Stage 2, xx, 2, 29-Jul-26, 19-Jan-27
-2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 0, Benedikt Magnússon, 2, 01-Apr-26, 20-May-26
-2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 1, Benedikt Magnússon, 2, 21-May-26, 21-Jul-26
-2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 2, Benedikt Magnússon, 2, 29-Jul-26, 19-Jan-27
-2023-12-14, Airfield, Civil, New Cargo Area, Stage 0, Benedikt Magnússon, 2, 23-Oct-23, 01-Dec-23
-2023-12-14, Airfield, Civil, New Cargo Area, Stage 1, Benedikt Magnússon, 2, 04-Dec-23, 20-Feb-24
-2023-12-14, Airfield, Civil, New Cargo Area, Stage 2, Benedikt Magnússon, 2, 28-Feb-24, 20-Aug-24
+2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 0, Benedikt MagnÃºsson, 2, 01-Apr-26, 20-May-26
+2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 1, Benedikt MagnÃºsson, 2, 21-May-26, 21-Jul-26
+2023-12-14, Airfield, Civil, Taxiway Sierra Tango, Stage 2, Benedikt MagnÃºsson, 2, 29-Jul-26, 19-Jan-27
+2023-12-14, Airfield, Civil, New Cargo Area, Stage 0, Benedikt MagnÃºsson, 2, 23-Oct-23, 01-Dec-23
+2023-12-14, Airfield, Civil, New Cargo Area, Stage 1, Benedikt MagnÃºsson, 2, 04-Dec-23, 20-Feb-24
+2023-12-14, Airfield, Civil, New Cargo Area, Stage 2, Benedikt MagnÃºsson, 2, 28-Feb-24, 20-Aug-24
 2023-12-14, Airfield, Civil, SAA21 - Taxiway K3 & K4, Stage 0, Brynjar Vatnsdal, 2, 01-Apr-26, 20-May-26
 2023-12-14, Airfield, Civil, SAA21 - Taxiway K3 & K4, Stage 1, Brynjar Vatnsdal, 2, 21-May-26, 21-Jul-26
 2023-12-14, Airfield, Civil, SAA21 - Taxiway K3 & K4, Stage 2, Brynjar Vatnsdal, 2, 29-Jul-26, 19-Jan-27
-2023-12-14, Landside, Civil, Covered Walkways, Stage 2, Gísli Guðmundsson, 3, 25-Sep-23, 19-Dec-23
-2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 2, Gísli Guðmundsson, 3, 22-May-23, 22-May-23
-2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 2, Gísli Guðmundsson, 3, 01-May-23, 21-Nov-23
-2023-12-14, Landside, Building, MSCP, Stage 1, Gísli Guðmundsson, 2, 17-Jul-23, 05-Sep-23
-2023-12-14, Landside, Building, MSCP, Stage 2, Gísli Guðmundsson, 2, 16-Oct-23, 20-Feb-24
-2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 1, Gísli Guðmundsson, 2, 05-Sep-23, 05-Sep-23
-2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 2, Gísli Guðmundsson, 2, 02-Oct-23, 20-Feb-24
+2023-12-14, Landside, Civil, Covered Walkways, Stage 2, GÃ­sli GuÃ°mundsson, 3, 25-Sep-23, 19-Dec-23
+2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 2, GÃ­sli GuÃ°mundsson, 3, 22-May-23, 22-May-23
+2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 2, GÃ­sli GuÃ°mundsson, 3, 01-May-23, 21-Nov-23
+2023-12-14, Landside, Building, MSCP, Stage 1, GÃ­sli GuÃ°mundsson, 2, 17-Jul-23, 05-Sep-23
+2023-12-14, Landside, Building, MSCP, Stage 2, GÃ­sli GuÃ°mundsson, 2, 16-Oct-23, 20-Feb-24
+2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 1, GÃ­sli GuÃ°mundsson, 2, 05-Sep-23, 05-Sep-23
+2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 2, GÃ­sli GuÃ°mundsson, 2, 02-Oct-23, 20-Feb-24
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Stage 0, xx, 2, 01-Aug-25, 12-Sep-25
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Stage 1, xx, 2, 15-Sep-25, 18-Nov-25
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Stage 2, xx, 2, 26-Nov-25, 19-May-26
-2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 0, Gísli Guðmundsson, 2, 23-Feb-23, 23-Feb-23
-2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 1, Gísli Guðmundsson, 2, 02-Feb-26, 21-Apr-26
-2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 2, Gísli Guðmundsson, 2, 30-Apr-26, 20-Oct-26
-2023-12-14, Landside, Building, Plaza & Hotel, Stage 0, Gísli Guðmundsson, 1, 01-Apr-26, 20-May-26
-2023-12-14, Landside, Building, Plaza & Hotel, Stage 1, Gísli Guðmundsson, 1, 21-May-26, 21-Jul-26
-2023-12-14, Landside, Building, Plaza & Hotel, Stage 2, Gísli Guðmundsson, 1, 29-Jul-26, 19-Jan-27
+2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 0, GÃ­sli GuÃ°mundsson, 2, 23-Feb-23, 23-Feb-23
+2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 1, GÃ­sli GuÃ°mundsson, 2, 02-Feb-26, 21-Apr-26
+2023-12-14, Landside, Building, Isavia Office space New HQ, Stage 2, GÃ­sli GuÃ°mundsson, 2, 30-Apr-26, 20-Oct-26
+2023-12-14, Landside, Building, Plaza & Hotel, Stage 0, GÃ­sli GuÃ°mundsson, 1, 01-Apr-26, 20-May-26
+2023-12-14, Landside, Building, Plaza & Hotel, Stage 1, GÃ­sli GuÃ°mundsson, 1, 21-May-26, 21-Jul-26
+2023-12-14, Landside, Building, Plaza & Hotel, Stage 2, GÃ­sli GuÃ°mundsson, 1, 29-Jul-26, 19-Jan-27
 2023-12-14, Landside, Civil, Re-location of Landside Functions on EW North Apron, Stage 0, xx, 2, 01-Apr-26, 20-May-26
 2023-12-14, Landside, Civil, Re-location of Landside Functions on EW North Apron, Stage 1, xx, 2, 21-May-26, 21-Jul-26
 2023-12-14, Landside, Civil, Re-location of Landside Functions on EW North Apron, Stage 2, xx, 2, 29-Jul-26, 19-Jan-27
 2023-12-14, Landside, Building, Silver Gate, Stage 0, xx, 2, 01-Apr-26, 20-May-26
 2023-12-14, Landside, Building, Silver Gate, Stage 1, xx, 2, 21-May-26, 21-Jul-26
 2023-12-14, Landside, Building, Silver Gate, Stage 2, xx, 2, 29-Jul-26, 19-Jan-27
-2023-12-14, Airfield, Utilities, Watermains, Stage 1, Geirmundur Sigurðusson & Ester Jónsdóttir, 2, 01-Mar-23, 01-Mar-23
-2023-12-14, Airfield, Utilities, Watermains, Stage 2, Geirmundur Sigurðusson & Ester Jónsdóttir, 2, 06-Nov-23, 16-Apr-24
-2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 0, Geirmundur Sigurðusson, 3, 02-Apr-24, 16-May-24
-2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 1, Geirmundur Sigurðusson, 3, 17-May-24, 16-Jul-24
-2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 2, Geirmundur Sigurðusson, 3, 24-Jul-24, 17-Dec-24
-2023-12-14, Terminals, Utilities, DAL23 - Isavia Office Space DAL, Stage 2, Gísli Guðmundsson, 3, 31-Mar-23, 31-Mar-23
-2023-12-14, Terminals, Utilities, Isavia Office Space KEF, Stage 2, Gísli Guðmundsson, 3, 31-Mar-23, 31-Mar-23
+2023-12-14, Airfield, Utilities, Watermains, Stage 1, Geirmundur SigurÃ°usson & Ester JÃ³nsdÃ³ttir, 2, 01-Mar-23, 01-Mar-23
+2023-12-14, Airfield, Utilities, Watermains, Stage 2, Geirmundur SigurÃ°usson & Ester JÃ³nsdÃ³ttir, 2, 06-Nov-23, 16-Apr-24
+2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 0, Geirmundur SigurÃ°usson, 3, 02-Apr-24, 16-May-24
+2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 1, Geirmundur SigurÃ°usson, 3, 17-May-24, 16-Jul-24
+2023-12-14, Airfield, Utilities, Foul Water - Storm Water, Stage 2, Geirmundur SigurÃ°usson, 3, 24-Jul-24, 17-Dec-24
+2023-12-14, Terminals, Utilities, DAL23 - Isavia Office Space DAL, Stage 2, GÃ­sli GuÃ°mundsson, 3, 31-Mar-23, 31-Mar-23
+2023-12-14, Terminals, Utilities, Isavia Office Space KEF, Stage 2, GÃ­sli GuÃ°mundsson, 3, 31-Mar-23, 31-Mar-23
 2023-12-14, Landside, Utilities, SVI22 - Substation Voltage Increase, Stage 1, Bruno Clark, 2, 02-Jun-22, 25-Aug-22
 2023-12-14, Landside, Utilities, SVI22 - Substation Voltage Increase, Stage 2, Bruno Clark, 2, 29-Aug-22, 21-Feb-23
 2023-12-14, Terminals, Utilities, Wifi, Stage 0, xx, 3, 01-Oct-25, 11-Nov-25
@@ -82,8 +82,8 @@
 2023-12-14, Airfield, Strategies and Plans, FUS23 - Future Soil, Stage 0, xx, 3, 20-Nov-23, 12-Jan-24
 2023-12-14, Airfield, Strategies and Plans, FUS23 - Future Soil, Stage 1, xx, 3, 15-Jan-24, 19-Mar-24
 2023-12-14, Airfield, Strategies and Plans, FUS23 - Future Soil, Stage 2, xx, 3, 27-Mar-24, 17-Sep-24
-2023-12-14, Landside, Strategies and Plans, RES23 - Real Estate Strategy, Stage 1, Theodóra Þorsteinsdóttir, 3, 21-Nov-23, 21-Nov-23
-2023-12-14, Landside, Strategies and Plans, RES23 - Real Estate Strategy, Stage 2, Theodóra Þorsteinsdóttir, 3, 22-Nov-23, 21-May-24
+2023-12-14, Landside, Strategies and Plans, RES23 - Real Estate Strategy, Stage 1, TheodÃ³ra ÃžorsteinsdÃ³ttir, 3, 21-Nov-23, 21-Nov-23
+2023-12-14, Landside, Strategies and Plans, RES23 - Real Estate Strategy, Stage 2, TheodÃ³ra ÃžorsteinsdÃ³ttir, 3, 22-Nov-23, 21-May-24
 2023-12-14, Terminals, Strategies and Plans, Strategic Lightning Protection, Stage 0, xx, 3, 01-Oct-25, 11-Nov-25
 2023-12-14, Terminals, Strategies and Plans, Strategic Lightning Protection, Stage 1, xx, 3, 12-Nov-25, 20-Jan-26
 2023-12-14, Terminals, Strategies and Plans, Strategic Lightning Protection, Stage 2, xx, 3, 28-Jan-26, 21-Jul-26
@@ -95,16 +95,16 @@
 2023-12-14, Airfield, Strategies and Plans, New Hangar / North West Area (New TXY), Stage 2, xx, 1, 29-Apr-25, 21-Oct-25
 2023-12-14, Airfield, Strategies and Plans, Cargo Strategy Phase 2, Stage 1, Pierpaolo Avanzi, 2, 30-Jun-23, 30-Jun-23
 2023-12-14, Airfield, Strategies and Plans, Cargo Strategy Phase 2, Stage 2, Pierpaolo Avanzi, 2, 03-Jul-23, 05-Sep-23
-2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 0, Benedikt Magnússon, 3, 02-Mar-26, 15-Apr-26
-2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 1, Benedikt Magnússon, 3, 16-Apr-26, 16-Jun-26
-2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 2, Benedikt Magnússon, 3, 25-Jun-26, 17-Nov-26
+2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 0, Benedikt MagnÃºsson, 3, 02-Mar-26, 15-Apr-26
+2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 1, Benedikt MagnÃºsson, 3, 16-Apr-26, 16-Jun-26
+2023-12-14, Terminals, Strategies and Plans, BOH23 - Back of House Strategies, Stage 2, Benedikt MagnÃºsson, 3, 25-Jun-26, 17-Nov-26
 2023-12-14, Terminals, Strategies and Plans, Affordability Study, Stage 0, xx, 3, 02-Mar-26, 15-Apr-26
 2023-12-14, Terminals, Strategies and Plans, Affordability Study, Stage 1, xx, 3, 16-Apr-26, 16-Jun-26
 2023-12-14, Terminals, Strategies and Plans, Affordability Study, Stage 2, xx, 3, 25-Jun-26, 17-Nov-26
 2023-12-14, Terminals, Strategies and Plans, Future Readiness Terminal, Stage 0, xx, 3, 02-Feb-26, 13-Mar-26
 2023-12-14, Terminals, Strategies and Plans, Future Readiness Terminal, Stage 1, xx, 3, 16-Mar-26, 19-May-26
 2023-12-14, Terminals, Strategies and Plans, Future Readiness Terminal, Stage 2, xx, 3, 28-May-26, 20-Oct-26
-2023-12-14, Airfield, Strategies and Plans, Future Fuels Readiness, Stage 0, Gísli Guðmundsson, 2, 02-May-23, 30-Jun-23
+2023-12-14, Airfield, Strategies and Plans, Future Fuels Readiness, Stage 0, GÃ­sli GuÃ°mundsson, 2, 02-May-23, 30-Jun-23
 2023-12-14, Terminals, Strategies and Plans, IDT, Procurement, xx, 3, 01-Mar-23, 31-Oct-24
 2023-12-14, Airfield, MOI, MTN24 - Taxiway Maintenance Nov 1 2 3, Stage 0, MOI, 3, 20-Nov-23, 12-Jan-24
 2023-12-14, Airfield, MOI, MTN24 - Taxiway Maintenance Nov 1 2 3, Stage 1, MOI, 3, 15-Jan-24, 19-Mar-24
@@ -140,9 +140,9 @@
 2023-12-14, Terminals, Building, SSA21 - Stand 10, Stage 5, Bjarni Jakob, 2, 18-Apr-22, 09-Oct-25
 2023-12-14, Terminals, Building, SSA21 - Stand 10, Stage 6, xx, 2, 22-Apr-24, 09-Oct-25
 2023-12-14, Terminals, Building, SLN18 - East Wing, Procurement, xx, 1, 04-Jan-21, 01-Jun-23
-2023-12-14, Terminals, Building, SLN18 - East Wing, Stage 5, Hartmann Rúnarsson, 1, 04-Jan-21, 02-Sep-24
+2023-12-14, Terminals, Building, SLN18 - East Wing, Stage 5, Hartmann RÃºnarsson, 1, 04-Jan-21, 02-Sep-24
 2023-12-14, Terminals, Building, SLN18 - East Wing, Stage 6, xx, 1, 27-Jul-23, 23-Dec-25
-2023-12-14, Terminals, Building, SLN21 - SE, Stage 3, Mark Bradley, 1, 31-Oct-22, 18-Jun-24
+2023-12-14, Terminals, Building, SLN21 - SE, Stage 3, Piotr, 1, 31-Oct-22, 18-Jun-24
 2023-12-14, Terminals, Building, SLN21 - SE, Stage 3, Mark Bradley, 1, 26-Apr-24, 26-Apr-24
 2023-12-14, Terminals, Building, SLN21 - SE, Stage 4, Mark Bradley, 1, 19-Jun-24, 17-Jun-25
 2023-12-14, Terminals, Building, SLN21 - SE, Procurement, xx, 1, 20-Sep-22, 03-Dec-25
@@ -213,7 +213,7 @@
 2023-12-14, Airfield, Civil, SFA16 F - Fuel Remote Stands, Procurement, xx, 2, 11-Dec-23, 16-Feb-24
 2023-12-14, Airfield, Civil, SFA16 F - Fuel Remote Stands, Stage 5, Guttormur Guttormsson, 2, 05-Dec-22, 04-Dec-24
 2023-12-14, Airfield, Civil, SFA16 SP - Settlement Pond, Procurement, xx, 2, 26-Apr-23, 14-Jul-23
-2023-12-14, Airfield, Civil, SFA16 SP - Settlement Pond, Stage 5, Sigurður Jens, 2, 17-Jul-23, 22-Mar-24
+2023-12-14, Airfield, Civil, SFA16 SP - Settlement Pond, Stage 5, SigurÃ°ur Jens, 2, 17-Jul-23, 22-Mar-24
 2023-12-14, Airfield, Civil, NAL23 - New Approach Lights 10, Stage 3, Andy Stevenson, 2, 14-Nov-22, 17-Oct-23
 2023-12-14, Airfield, Civil, NAL23 - New Approach Lights 10, Stage 4, Andy Stevenson, 2, 16-Nov-23, 20-Feb-24
 2023-12-14, Airfield, Civil, NAL23 - New Approach Lights 10, Procurement, xx, 2, 21-Feb-24, 22-Apr-24
@@ -252,17 +252,17 @@
 2023-12-14, Landside, Civil, NTHV21 - New Service Road, Stage 4, Siggi Kristo, 3, 21-Aug-24, 20-May-25
 2023-12-14, Landside, Civil, NTHV21 - New Service Road, Procurement, xx, 3, 21-May-25, 10-Nov-25
 2023-12-14, Landside, Civil, NTHV21 - New Service Road, Stage 5, Siggi Kristo, 3, 11-Nov-25, 23-Dec-25
-2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 3, Sigurður Jens, 3, 21-Aug-23, 16-Jan-24
+2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 3, SigurÃ°ur Jens, 3, 21-Aug-23, 16-Jan-24
 2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Procurement, xx, 3, 20-Dec-23, 12-Mar-24
-2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 5, Sigurður Jens, 3, 31-May-23, 04-Feb-27
-2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 3, Sigurður Jens, 3, 21-Dec-23, 19-Mar-24
-2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 4, Sigurður Jens, 3, 20-Mar-24, 18-Jun-24
+2023-12-14, Landside, Building, FPR23 - Forecourt Parking Relocation, Stage 5, SigurÃ°ur Jens, 3, 31-May-23, 04-Feb-27
+2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 3, SigurÃ°ur Jens, 3, 21-Dec-23, 19-Mar-24
+2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 4, SigurÃ°ur Jens, 3, 20-Mar-24, 18-Jun-24
 2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Procurement, xx, 3, 19-Jun-24, 14-Aug-24
-2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 5, Sigurður Jens, 3, 15-Aug-24, 11-Apr-25
-2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 3, Sigurður Jens, 2, 20-Mar-24, 19-Nov-24
-2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 4, Sigurður Jens, 2, 20-Nov-24, 19-Aug-25
+2023-12-14, Landside, Civil, RRR23 - Ringroad and Roundabout, Stage 5, SigurÃ°ur Jens, 3, 15-Aug-24, 11-Apr-25
+2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 3, SigurÃ°ur Jens, 2, 20-Mar-24, 19-Nov-24
+2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 4, SigurÃ°ur Jens, 2, 20-Nov-24, 19-Aug-25
 2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Procurement, xx, 2, 20-Aug-25, 19-Feb-26
-2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 5, Sigurður Jens, 2, 20-Feb-26, 02-Dec-26
+2023-12-14, Landside, Building, Onward Travel Hub & Bikepit, Stage 5, SigurÃ°ur Jens, 2, 20-Feb-26, 02-Dec-26
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Stage 3, xx, 2, 19-Jun-26, 16-Feb-27
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Stage 4, xx, 2, 17-Feb-27, 19-Oct-27
 2023-12-14, Landside, Civil, Logistics Compound & Training Centre, Procurement, xx, 2, 20-Oct-27, 24-Apr-28
