@@ -10,10 +10,12 @@ import plotly.graph_objs as go
 try:
 
     # Read data from formatted_data.txt with specified encoding
-    df = pd.read_csv("formatted_data.txt", encoding='ISO-8859-1', header=None,
-                    names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
-                    dtype={"Start": "string", "Finish": "string","Last Updated Date": "string", "Location": "string", "Type": "string", "Task": "string", "Phase": "string", "PM": "string", "Tier": "string",})
-    # Strip leading and trailing spaces from 'Start' and 'Finish' columns
+    df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
+                 names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
+                 dtype={"Start": "string", "Finish": "string", "Last Updated Date": "string", 
+                        "Location": "string", "Type": "string", "Task": "string", 
+                        "Phase": "string", "PM": "string", "Tier": "string"})
+   # Strip leading and trailing spaces from 'Start' and 'Finish' columns
     df['Last Updated Date'] = df['Last Updated Date'].str.strip()
     df['Location'] = df['Location'].str.strip()    
     df['Type'] = df['Type'].str.strip()
