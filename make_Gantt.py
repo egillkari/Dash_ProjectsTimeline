@@ -8,7 +8,6 @@ from datetime import datetime
 import plotly.graph_objs as go
 
 try:
-
     # Read data from formatted_data.txt with specified encoding
     df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
                  names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
@@ -30,9 +29,6 @@ try:
     df['Start'] = pd.to_datetime(df['Start'])
     df['Finish'] = pd.to_datetime(df['Finish'])
 
-    ## Reformat 'Start' and 'Finish' to 'DD-MMM-YY' string format
-    #df['Start'] = df['Start'].dt.strftime('%d-%b-%y')
-    #df['Finish'] = df['Finish'].dt.strftime('%d-%b-%y')
     # Convert 'Last Updated Date' to datetime
     df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'])
     df = df.sort_values(by="Start", ascending=False)
@@ -45,14 +41,10 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
     df = pd.DataFrame()  # Create an empty DataFrame if there's an error
-# Rest of your code...
-
 
 # Update the last updated date in the app layout
 last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
 
-print(df)
-# Rest of your code...
 # Initialize the app
 app = Dash(__name__)
 server = app.server
@@ -83,14 +75,13 @@ pm_colors = {
     'Siggi Kristó': '#4988bf',   # Pink
     'Bjarni Jakob': '#f5d698',   # 
     'xx': '#cfcfcf'   # 
-    # ... add more PMs/colors as needed
 }
 
 # Get current date
 current_date_str = datetime.now().strftime("%Y-%m-%d")
-
 type_options = [{'label': t, 'value': t} for t in df['Type'].unique()]
-# Define a CSS style for the filter div containers
+
+#Styles:
 filter_container_style = {
     'display': 'flex',
     'flexDirection': 'column',
@@ -99,10 +90,6 @@ filter_container_style = {
     'minWidth': '110px',
     #'maxWidth': '120px'
 }
-
-
-
-# Filters and sorting options container style
 filter_sort_container_style = {
     'display': 'flex',
     'flexWrap': 'wrap',
@@ -112,8 +99,6 @@ filter_sort_container_style = {
     'padding': '0 20px',
     'zIndex': '5'  # Ensure this is lower than the dropdown z-index
 }
-
-# Dropdown container style
 dropdown_container_style = {
     'position': 'absolute',  # Position it absolutely to place it on top of other elements
     'right': '1%',  # Adjust this value as needed to position from the right
@@ -125,8 +110,6 @@ dropdown_container_style = {
     'gap': '10px',  # Spacing between each dropdown
     'paddingTight': '10px',
 }
-
-# Individual dropdown details style
 dropdown_details_style = {
     'display': 'inline-block',  # Using inline-block for side by side layout
     'width': '150px',  # Define a width that accommodates the content
@@ -137,7 +120,6 @@ dropdown_details_style = {
     'background-color': '#f8f9fa',
     'overflow': 'visible',  # Allow the dropdown content to overflow
 }
-# Left-aligned dropdown container style
 left_dropdown_container_style = {
     'position': 'absolute',  # Position it absolutely to place it on top of other elements
     'left': '1%',  # Adjust this value as needed to position from the left
@@ -148,8 +130,6 @@ left_dropdown_container_style = {
     'alignItems': 'flex-start',  # Align items at the start of the container
     'gap': '10px',  # Spacing between each dropdown
 }
-
-# Right-aligned dropdown container style
 right_dropdown_container_style = {
     'position': 'absolute',  # Position it absolutely to place it on top of other elements
     'right': '1%',  # Adjust this value as needed to position from the right
@@ -161,7 +141,6 @@ right_dropdown_container_style = {
     'gap': '10px',  # Spacing between each dropdown
 }
 
-
 # Sort the project list alphabetically
 project_options = [{'label': project, 'value': project} for project in sorted(df['Task'].unique())]
 
@@ -170,7 +149,6 @@ stage_options = [{'label': stage, 'value': stage} for stage in df['Phase'].uniqu
 
 # Options for PMs
 pm_options = [{'label': pm, 'value': pm} for pm in sorted(df['PM'].unique())]
-
 
 # Header layout with title, button, and logos
 header_layout = html.Div([
@@ -233,7 +211,7 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
     ], style=dict(dropdown_details_style, marginRight='10px',maxWidth='115px')),  # Added marginRight for spacing
 
     html.Details([
-        html.Summary('PMs:', style={'fontWeight': 'bold'}),
+        html.Summary('Select PMs:', style={'fontWeight': 'bold'}),
         dcc.Checklist(
             id='pm-checklist-items',
             options=pm_options,
@@ -243,7 +221,7 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
     ], style=dict(dropdown_details_style, marginRight='10px',minWidth='190px')),  # Added marginRight for spacing
 
     html.Details([
-        html.Summary('Projects:', style={'fontWeight': 'bold'}),
+        html.Summary('Select Projects:', style={'fontWeight': 'bold'}),
         dcc.Checklist(
             id='filtered-project-list-checklist',
             options=[],  # Initially empty, will be populated dynamically
@@ -252,8 +230,6 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
         ),
     ], style=dict(dropdown_details_style, minWidth='190px')),  # Added marginRight for spacing
 ])
-
-
 
 #isavia blue : #4396a7 orange:#e65500
 # App layout
@@ -576,6 +552,25 @@ def update_filtered_project_checklist(selected_locations, selected_types, select
     project_checklist_options = [{'label': project, 'value': project} for project in sorted(filtered_df['Task'].unique())]
 
     return project_checklist_options
+
+@app.callback(
+    Output('pm-checklist-items', 'options'),
+    [
+        Input('location-checklist-items', 'value'),
+        Input('type-checklist-items', 'value'),
+        Input('tier-checklist-items', 'value'),
+        Input('stage-checklist-items', 'value'),
+        # No need to include the PM checklist itself as an input, to avoid circular updates
+    ]
+)
+def update_pm_checklist_options(selected_locations, selected_types, selected_tiers, selected_stages):
+    # Perform filtering based on the checklist values
+    filtered_df = filter_dataframe(df, selected_tiers, selected_locations, selected_types, selected_stages)
+    
+    # Update the PM options based on the filtered dataframe
+    pm_options = [{'label': pm, 'value': pm} for pm in sorted(filtered_df['PM'].unique())]
+    
+    return pm_options
 
 @app.callback(
     Output('gantt-chart-placeholder', 'figure'),
