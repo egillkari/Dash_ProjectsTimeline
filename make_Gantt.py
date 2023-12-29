@@ -48,6 +48,7 @@ last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if no
 # Initialize the app
 app = Dash(__name__)
 server = app.server
+app.title = 'FUPP'
 
 # Define custom color maps
 phase_colors = {
@@ -627,8 +628,6 @@ def update_graph(color_column, selected_location_categories, selected_types, sel
         fig.update_layout(title="No Data to Display")
 
     return fig
-
-
 
 
 # This is just for demonstration, you can integrate it with your main app script.
