@@ -155,39 +155,61 @@ pm_options = [{'label': pm, 'value': pm} for pm in sorted(df['PM'].unique())]
 header_layout = html.Div([
     # Title and Timeline Slider button
     html.Div([
-        html.H1([
-            html.Span('Projects', style={"color": "#101010", "fontWeight": "bold"}),
-            html.Span('Timeline', style={"color": "#004DF4", "fontWeight": "bold"}),
-        ], style={'display': 'inline-block', 'marginRight': '40px',"fontSize": "56px",'verticalAlign': 'middle',}),
+        html.Div([
+            html.H1([
+                html.Span('Projects', style={"color": "#101010", "fontWeight": "bold"}),
+                html.Span('Timeline', style={"color": "#004DF4", "fontWeight": "bold"}),
+            ], style={
+                'fontSize': "48px",
+                'display': 'inline-block',
+                'verticalAlign': 'middle',
+                'marginRight': '10px',
+            }),
+            html.Button('Timeline Slider', id='toggle-slider-button', n_clicks=0, style={
+                'backgroundColor': '#004DF4',
+                'color': 'white',
+                'border': 'none',
+                'borderRadius': '5px',
+                'padding': '10px 20px',
+                'fontSize': '16px',
+                'display': 'inline-block',
+                'verticalAlign': 'middle',
+                'marginLeft': '10px',
+            }),
+        ], style={
+            'display': 'inline-block',
+            'verticalAlign': 'middle',
+        }),
         
-        html.Button('Timeline Slider', id='toggle-slider-button', n_clicks=0, style={
-            'backgroundColor': '#004DF4',
-            'color': 'white',
-            'border': 'none',
-            'borderRadius': '5px',
-            'padding': '10px 20px',
-            'cursor': 'pointer',
-            'fontSize': '16px',
-            'outline': 'none',
-            'display': 'inline-block',  # Display inline with the title
-            'marginRight': '20px',  # Space between the button and the logos
+        # Logos
+        html.Div([
+            html.Img(src="/assets/isavia_logo.png", style={
+                'height': '70px',  # Adjust the height to align with the text and button
+                'marginRight': '10px',
+                'filter': "grayscale(100%)",
+                'display': 'inline-block',
+                'verticalAlign': 'middle',
+            }),
+            html.Img(src="/assets/KEF-EN-svart.png", style={
+                'height': '70px',  # Adjust the height to align with the text and button
+                'filter': "grayscale(100%)",
+                'display': 'inline-block',
+                'verticalAlign': 'middle',
+            }),
+        ], style={
+            'display': 'inline-block',
+            'verticalAlign': 'middle',
+            'float': 'right',  # Float right to align with the right edge
         }),
-    ], style={'display': 'inline-block', 'verticalAlign': 'middle', 'width': 'auto'}),
-    
-    # Logos
-    html.Div([
-        html.Img(src="/assets/isavia_logo.png", style={
-            "height": "80px",
-            "marginRight": "20px",
-            "filter": "grayscale(100%)"
-        }),
-        html.Img(src="/assets/KEF-EN-svart.png", style={
-            "height": "80px",
-            "filter": "grayscale(100%)"
-        }),
-    ], style={'display': 'inline-block', 'verticalAlign': 'middle', 'float': 'right'}),
-    
-], style={"padding": "10px 0", "overflow": "auto", "whiteSpace": "nowrap", "position": "relative"})
+    ], style={
+        'display': 'flex',
+        'justifyContent': 'space-between',
+        'alignItems': 'center',
+        'padding': '10px 20px',  # Add padding as needed
+    }),
+], style={
+    'overflow': 'hidden',  # Ensure the floating elements are contained within the div
+})
 
 # Last Updated Date positioned at the bottom right of the header
 last_updated_layout = html.Div([
@@ -235,6 +257,7 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
 #isavia blue : #4396a7 orange:#e65500
 # App layout
 app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fontFamily': 'Arial'}, children=[
+
     header_layout,
     last_updated_layout,
     
