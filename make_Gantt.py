@@ -179,7 +179,7 @@ header_layout = html.Div([
         html.H1([
             html.Span('Projects', style={"color": "#101010", "fontWeight": "bold"}),
             html.Span('Timeline', style={"color": "#004DF4", "fontWeight": "bold"}),
-        ], style={'display': 'inline-block', 'marginRight': '20px',"fontSize": "48px",'verticalAlign': 'middle',}),
+        ], style={'display': 'inline-block', 'marginRight': '40px',"fontSize": "56px",'verticalAlign': 'middle',}),
         
         html.Button('Timeline Slider', id='toggle-slider-button', n_clicks=0, style={
             'backgroundColor': '#004DF4',
@@ -219,6 +219,41 @@ last_updated_layout = html.Div([
         'marginTop': '5px'
     })
 ], style={'position': 'absolute', 'top': '0px', 'right': '20px'})
+
+# The dropdowns for Stages, PMs, and Projects with spacing between them
+select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inline-block', 'verticalAlign': 'top', 'position': 'absolute', 'right': '1%', 'top': '0', 'alignItems': 'flex-start'}, children=[
+    html.Details([
+        html.Summary('Stages:', style={'fontWeight': 'bold'}),
+        dcc.Checklist(
+            id='stage-checklist-items',
+            options=stage_options,
+            value=[],
+            style={"color": "black"}
+        ),
+    ], style=dict(dropdown_details_style, marginRight='10px',maxWidth='115px')),  # Added marginRight for spacing
+
+    html.Details([
+        html.Summary('PMs:', style={'fontWeight': 'bold'}),
+        dcc.Checklist(
+            id='pm-checklist-items',
+            options=pm_options,
+            value=[],
+            style={"color": "black"}
+        ),
+    ], style=dict(dropdown_details_style, marginRight='10px',minWidth='190px')),  # Added marginRight for spacing
+
+    html.Details([
+        html.Summary('Projects:', style={'fontWeight': 'bold'}),
+        dcc.Checklist(
+            id='filtered-project-list-checklist',
+            options=[],  # Initially empty, will be populated dynamically
+            value=[],
+            style={"color": "black"}
+        ),
+    ], style=dict(dropdown_details_style, minWidth='190px')),  # Added marginRight for spacing
+])
+
+
 
 #isavia blue : #4396a7 orange:#e65500
 # App layout
@@ -319,38 +354,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
             ]),
         ]),
 
-        # The dropdowns for Stages, PMs, and Projects will be aligned next to the sorting options on the right
-        html.Div(style={'paddingRight': '10px','display': 'inline-block', 'verticalAlign': 'top', 'position': 'absolute', 'right': '1%', 'top': '0','gap': '10px','alignItems': 'flex-start'}, children=[
-            html.Details([
-                html.Summary('Select Stages:', style={'fontWeight': 'bold'}),
-                dcc.Checklist(
-                    id='stage-checklist-items',
-                    options=stage_options,
-                    value=[],
-                    style={"color": "black"}
-                ),
-            ], style=dropdown_details_style),
+        select_options_layout,
 
-            html.Details([
-                html.Summary('Select PMs:', style={'fontWeight': 'bold'}),
-                dcc.Checklist(
-                    id='pm-checklist-items',
-                    options=pm_options,
-                    value=[],
-                    style={"color": "black"}
-                ),
-            ], style=dropdown_details_style),
-
-            html.Details([
-                html.Summary('Select Projects:', style={'fontWeight': 'bold'}),
-                dcc.Checklist(
-                    id='filtered-project-list-checklist',
-                    options=[],  # Initially empty, will be populated dynamically
-                    value=[],
-                    style={"color": "black"}
-                ),
-            ], style=dropdown_details_style),
-        ]),
     ]),
     # New Div for spacing
     html.Div(style={'height': '50pt'}),
