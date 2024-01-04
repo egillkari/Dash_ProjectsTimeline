@@ -151,6 +151,7 @@ stage_options = [{'label': stage, 'value': stage} for stage in df['Phase'].uniqu
 # Options for PMs
 pm_options = [{'label': pm, 'value': pm} for pm in sorted(df['PM'].unique())]
 
+
 # Header layout with title, button, and logos
 header_layout = html.Div([
     # Title and Timeline Slider button
@@ -362,11 +363,10 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
 
     # Graph container with lower z-index
     dcc.Graph(id='gantt-chart-placeholder', style={
-        "height": "1000px",
+        #"height": "1500px",
         "backgroundColor": "#4396a7",
         'zIndex': '1'
     }),
-
 ])
 
 
@@ -578,6 +578,26 @@ def update_filtered_project_checklist(selected_locations, selected_types, select
     return project_checklist_options
 
 @app.callback(
+    Output('gantt-chart-placeholder', 'style'),
+    [Input('filtered-project-list-checklist', 'options')]
+)
+def update_graph_container_height(selected_projects):
+    # Set a minimum height
+    min_height = 850
+
+    # Calculate the height based on the number of projects (18px per project)
+    height_per_project = 25
+    dynamic_height = max(min_height, len(selected_projects) * height_per_project)
+
+    # Return the updated style dictionary with the new height
+    return {
+        "height": f"{dynamic_height}px",
+        "backgroundColor": "#4396a7",
+        'zIndex': '1'
+    }
+
+
+@app.callback(
     Output('pm-checklist-items', 'options'),
     [
         Input('location-checklist-items', 'value'),
@@ -595,6 +615,7 @@ def update_pm_checklist_options(selected_locations, selected_types, selected_tie
     pm_options = [{'label': pm, 'value': pm} for pm in sorted(filtered_df['PM'].unique())]
     
     return pm_options
+
 
 @app.callback(
     Output('gantt-chart-placeholder', 'figure'),
