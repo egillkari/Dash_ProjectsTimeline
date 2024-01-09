@@ -1,24 +1,30 @@
 # Import packages
 from dash import Dash, html, dcc
-from dash.dependencies import Input, Output, State  # Updated import
+from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 import pandas as pd
 import plotly.express as px
 from datetime import datetime
 import plotly.graph_objs as go
+import warnings
+warnings.filterwarnings("ignore")
+from dash_table import DataTable
 
+
+
+# Read data from formatted_data.txt with specified encoding
+df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
+                names=["Last Updated Date", "Department", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
+                dtype={"Start": "string", "Finish": "string", "Last Updated Date": "string", 
+                    "Location": "string", "Type": "string", "Task": "string", 
+                    "Phase": "string", "PM": "string", "Tier": "string", "Department":"string"})
 try:
-    # Read data from formatted_data.txt with specified encoding
-    df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
-                 names=["Last Updated Date", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
-                 dtype={"Start": "string", "Finish": "string", "Last Updated Date": "string", 
-                        "Location": "string", "Type": "string", "Task": "string", 
-                        "Phase": "string", "PM": "string", "Tier": "string"})
    # Strip leading and trailing spaces from 'Start' and 'Finish' columns
     df['Last Updated Date'] = df['Last Updated Date'].str.strip()
     df['Location'] = df['Location'].str.strip()
+    df['Department'] = df['Department'].str.strip()
     df['Type'] = df['Type'].str.strip()
-    df['Task'] = df['Task'].str.strip()    
+    df['Task'] = df['Task'].str.strip()
     df['Phase'] = df['Phase'].str.strip()
     df['PM'] = df['PM'].str.strip()    
     df['Tier'] = df['Tier'].str.strip()
@@ -36,7 +42,6 @@ try:
     # Aggregate start and finish times for each task and merge
     project_timeframes = df.groupby('Task').agg({'Start': 'min', 'Finish': 'max'})
     df = df.merge(project_timeframes, on='Task', suffixes=('', '_Project'))
-    print(type(df))
 
 except Exception as e:
     print(f"An error occurred: {e}")
@@ -81,7 +86,6 @@ pm_colors = {
 # Get current date
 current_date_str = datetime.now().strftime("%Y-%m-%d")
 type_options = [{'label': t, 'value': t} for t in df['Type'].unique()]
-
 #Styles:
 filter_container_style = {
     'display': 'flex',
@@ -150,7 +154,6 @@ stage_options = [{'label': stage, 'value': stage} for stage in df['Phase'].uniqu
 
 # Options for PMs
 pm_options = [{'label': pm, 'value': pm} for pm in sorted(df['PM'].unique())]
-
 
 # Header layout with title, button, and logos
 header_layout = html.Div([
@@ -280,7 +283,16 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
-            
+            # Filter Data by Department
+            html.Div(style=filter_container_style, children=[
+                html.Label('Department:', style={'paddingRight': '10px'}),
+                dcc.Checklist(
+                    options=[{'label': department, 'value': department} for department in sorted(df['Department'].unique())],
+                    value=['FUPP'],  # Default value can be set here
+                    id='department-checklist-items',
+                    style={"color": "black"}
+                ),
+            ]),
             # Filter Data by Location
             html.Div(style=filter_container_style, children=[
                 html.Label('Location:', style={'paddingRight': '10px'}),
@@ -290,7 +302,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                         {'label': 'Airfield', 'value': 'Airfield'},
                         {'label': 'Landside', 'value': 'Landside'}
                     ],
-                    value=['Terminals', 'Airfield'],
+                    value=['Terminals', 'Airfield','Landside'],
                     id='location-checklist-items',
                     style={"color": "black"}
                 ),
@@ -304,8 +316,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                         {'label': 'Building', 'value': 'Building'},
                         {'label': 'Civil', 'value': 'Civil'},
                         {'label': 'Utilities', 'value': 'Utilities'},
-                        {'label': 'Strategies and Plans', 'value': 'Strategies and Plans'},
-                        {'label': 'MOI', 'value': 'MOI'}
+                        {'label': 'Strategies & Plans', 'value': 'Strategies and Plans'}
                     ],
                     value=['Building', 'Civil'],
                     id='type-checklist-items',
@@ -358,20 +369,34 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
         select_options_layout,
 
     ]),
+
+    dcc.Store(id='graph-container-height-store'),
+
     # New Div for spacing
-    html.Div(style={'height': '50pt'}),
+    html.Div(style={'height': '50pt','zIndex': '1'}),
 
     # Graph container with lower z-index
     dcc.Graph(id='gantt-chart-placeholder', style={
         #"height": "1500px",
         "backgroundColor": "#4396a7",
-        'zIndex': '1'
-    }),
+        'zIndex': '2'
+    },
+        config={
+            'toImageButtonOptions': {
+                'format': 'png',  # One of png, svg, jpeg, webp
+                'filename': 'FUPP_Timeline_snapshot',
+                #'scale': 1  # Multiply title/legend/axis/canvas sizes by this factor
+            }
+        }
+    ),
 ])
 
-
 # Refactored function for filtering DataFrame
-def filter_dataframe(df, selected_tiers, selected_location_categories, selected_types, selected_stages):
+def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages):
+
+    # Apply Department filter
+    if selected_departments:
+        df = df[df['Department'].isin(selected_departments)]
     # Apply Location filter
     if selected_location_categories:
         df = df[df['Location'].isin(selected_location_categories)]
@@ -431,7 +456,7 @@ def sort_dataframe(filtered_df, sort_column):
 
 
 # Function to create Gantt Chart
-def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_colors):
+def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_colors, graph_container_height):
     # Set the figure size or layout properties to adjust the width
     fig = go.Figure()
     fig.update_layout(
@@ -439,64 +464,52 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
         width=900,  # Adjust width as necessary to fit the sidebar
         # ... (other layout properties)
     )
-        # Check if the DataFrame is empty
+    relative_legend_item_height = 15 / graph_container_height
+
+    # Check if the DataFrame is empty
     if sorted_df.empty:
         return None
-        # Check the value of color_column and create the Plotly timeline accordingly
+
+    # Create the Plotly timeline
     if color_column == 'PM':
-        fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task", 
-                        color="PM", hover_name="Phase", 
-                        labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
-                        color_discrete_map=pm_colors,  # Use the PM color map
-                        category_orders={"Task": task_order},  # Specify the order of tasks
-                        hover_data={"Start": True, "Finish": True, "Tier": True, "Location": True, "Type": True})  # Include 'Tier' in hover data
-        # Disable legend interactivity
+        fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
+                          color="PM", hover_name="Phase",
+                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
+                          color_discrete_map=pm_colors,  # Use the PM color map
+                          category_orders={"Task": task_order})  # Specify the order of tasks
         fig.update_layout(legend=dict(itemclick=False, itemdoubleclick=False))
-
     else:
-        fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task", 
-                        color="Phase", hover_name="PM", 
-                        labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
-                        color_discrete_map=phase_colors,  # Use the Phase color map
-                        category_orders={"Task": task_order},  # Specify the order of tasks
-                        hover_data={"Start": True, "Finish": True, "Tier": True, "Location": True, "Type": True})  # Include 'Tier' in hover data
-
-            # Turn off the default legend
+        fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
+                          color="Phase", hover_name="PM",
+                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
+                          color_discrete_map=phase_colors,  # Use the Phase color map
+                          category_orders={"Task": task_order})  # Specify the order of tasks
         fig.update_layout(showlegend=False)
 
-        # Use the phase_colors dictionary directly to create custom legend items
-        legend_items = list(phase_colors.items())
-        legend_items.reverse()
-
-        # Define starting positions
+        # Define starting positions for the custom legend
         legend_x_start = 1.02  # X position of legend start (right of the graph)
         legend_y_start = 1  # Y position of legend start (top of the graph)
 
-        # Define legend aesthetics
+        # Define aesthetics for the custom legend
         color_block_width = 0.03  # Width of the color block
-        color_block_height = 0.025  # Height of the color block
-        text_padding_from_block = 0.01  # Space between color block and text
-        vertical_space_between_items = 0.01  # Space between legend items
+        vertical_space_between_items = 15 / graph_container_height  # Space between legend items
 
-        # Create the custom legend
-        for i, (label, color) in enumerate(legend_items):
-            # Determine the y position for the current item
-            current_y_position = legend_y_start - i * (color_block_height + vertical_space_between_items)
-
-            # Add the color block
+        # Create the custom legend using the relative height
+        for i, (label, color) in enumerate(reversed(list(phase_colors.items()))):
+            current_y_position = legend_y_start - i * (relative_legend_item_height + vertical_space_between_items)
             fig.add_shape(
                 type="rect",
                 xref="paper", yref="paper",
                 x0=legend_x_start, y0=current_y_position,
-                x1=legend_x_start + color_block_width, y1=current_y_position - color_block_height,
+                x1=legend_x_start + color_block_width,
+                y1=current_y_position - relative_legend_item_height,
                 fillcolor=color,
                 line=dict(color=color),
             )
-
-            # Add the label text
             fig.add_annotation(
                 xref="paper", yref="paper",
-                x=legend_x_start + color_block_width + text_padding_from_block, y=current_y_position - (color_block_height / 2),
+                x=legend_x_start + color_block_width + 0.01,
+                y=current_y_position - (relative_legend_item_height / 2),
                 text=label,
                 showarrow=False,
                 align="left",
@@ -507,7 +520,7 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
 
         # Update the layout to accommodate the custom legend
         fig.update_layout(
-            margin=dict(r=160),  # Adjust right margin to fit the legend
+            margin=dict(r=170),  # Adjust the right margin to fit the custom legend
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
@@ -516,6 +529,7 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
                 x=1
             )
         )
+
     return fig
 
 
@@ -552,6 +566,7 @@ def toggle_range_slider(fig, n_clicks):
 @app.callback(
     Output('filtered-project-list-checklist', 'options'),
     [
+        Input('department-checklist-items', 'value'), 
         Input('location-checklist-items', 'value'),
         Input('type-checklist-items', 'value'),
         Input('tier-checklist-items', 'value'),
@@ -560,9 +575,9 @@ def toggle_range_slider(fig, n_clicks):
     ]
     #[State('project-list-checklist', 'value')]  # Include the full project list state if needed
 )
-def update_filtered_project_checklist(selected_locations, selected_types, selected_tiers, selected_stages, selected_pms):
-    # Perform filtering based on the checklist values
-    filtered_df = filter_dataframe(df, selected_tiers, selected_locations, selected_types, selected_stages)
+def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_pms):
+    # Perform filtering
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages)
     
     # Further filter based on selected PMs
     if selected_pms:
@@ -593,13 +608,27 @@ def update_graph_container_height(selected_projects):
     return {
         "height": f"{dynamic_height}px",
         "backgroundColor": "#4396a7",
-        'zIndex': '1'
+        'zIndex': '2'
     }
+
+@app.callback(
+    Output('graph-container-height-store', 'data'),
+    [Input('filtered-project-list-checklist', 'options')]
+)
+def get_graph_container_height(selected_projects):
+    # Set a minimum height
+    min_height = 850
+
+    # Calculate the height based on the number of projects (18px per project)
+    height_per_project = 25
+    dynamic_height = max(min_height, len(selected_projects) * height_per_project)
+    return {"height": dynamic_height}
 
 
 @app.callback(
     Output('pm-checklist-items', 'options'),
     [
+        Input('department-checklist-items', 'value'), 
         Input('location-checklist-items', 'value'),
         Input('type-checklist-items', 'value'),
         Input('tier-checklist-items', 'value'),
@@ -607,10 +636,9 @@ def update_graph_container_height(selected_projects):
         # No need to include the PM checklist itself as an input, to avoid circular updates
     ]
 )
-def update_pm_checklist_options(selected_locations, selected_types, selected_tiers, selected_stages):
+def update_pm_checklist_options(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages):
     # Perform filtering based on the checklist values
-    filtered_df = filter_dataframe(df, selected_tiers, selected_locations, selected_types, selected_stages)
-    
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages)
     # Update the PM options based on the filtered dataframe
     pm_options = [{'label': pm, 'value': pm} for pm in sorted(filtered_df['PM'].unique())]
     
@@ -621,6 +649,8 @@ def update_pm_checklist_options(selected_locations, selected_types, selected_tie
     Output('gantt-chart-placeholder', 'figure'),
     [
         Input('color-radio-items', 'value'),
+        Input('graph-container-height-store', 'data'),
+        Input('department-checklist-items', 'value'), 
         Input('location-checklist-items', 'value'),
         Input('type-checklist-items', 'value'),
         Input('tier-checklist-items', 'value'),
@@ -631,14 +661,14 @@ def update_pm_checklist_options(selected_locations, selected_types, selected_tie
         Input('filtered-project-list-checklist', 'value')  # New input for the filtered project list
     ]
 )
-def update_graph(color_column, selected_location_categories, selected_types, selected_tiers, selected_stages, 
-                 selected_pms, n_clicks, sort_column, filtered_projects):
+def update_graph(color_column, graph_container_height_data, selected_departments, selected_location_categories, selected_types, selected_tiers, selected_stages, selected_pms, n_clicks, sort_column, filtered_projects):
+
     # Proceed with filtering if location categories are selected
     if not selected_location_categories:
         return go.Figure()
 
     # Filter the DataFrame based on the selected filters
-    filtered_df = filter_dataframe(df, selected_tiers, selected_location_categories, selected_types, selected_stages)
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages)
 
     # Filter based on selected PMs
     if selected_pms:
@@ -650,7 +680,6 @@ def update_graph(color_column, selected_location_categories, selected_types, sel
 
     # Aggregate and merge data
     filtered_df = aggregate_and_merge_data(filtered_df)
-
     # Sort the DataFrame
     sorted_df = sort_dataframe(filtered_df, sort_column)
 
@@ -659,7 +688,8 @@ def update_graph(color_column, selected_location_categories, selected_types, sel
     task_order.reverse()
     
     # Create the Gantt chart
-    fig = create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_colors)
+    graph_container_height = graph_container_height_data['height'] if graph_container_height_data else 800  # default if data is None
+    fig = create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_colors, graph_container_height)
 
     # Add current date line and toggle range slider if the figure is not None
     if fig is not None:
