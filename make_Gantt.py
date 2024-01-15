@@ -8,9 +8,6 @@ from datetime import datetime
 import plotly.graph_objs as go
 import warnings
 warnings.filterwarnings("ignore")
-from dash_table import DataTable
-
-
 
 # Read data from formatted_data.txt with specified encoding
 df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
@@ -92,7 +89,7 @@ filter_container_style = {
     'flexDirection': 'column',
     'justifyContent': 'flex-start',  # Align items to the top
     'paddingRight': '10px',
-    'minWidth': '110px',
+    #'minWidth': '110px',
     #'maxWidth': '120px'
 }
 filter_sort_container_style = {
@@ -270,8 +267,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
         # Left-aligned options container
         html.Div(style={'display': 'flex', 'flexWrap': 'nowrap', 'justifyContent': 'start', 'alignItems': 'flex-start', 'marginRight': '50%'}, children=[
             # Filter by PM/Phase
-            html.Div(style=filter_container_style, children=[
-                html.Label('Color by:', style={'paddingRight': '10px'}),
+            html.Div(style={**filter_container_style, 'width':'80px','minWidth': '80px','maxWidth': '80px'}, children=[
+                html.Label('Color by:', style={'paddingRight': '0px'}),
                 dcc.RadioItems(
                     options=[
                         {'label': 'Stages', 'value': 'Phase'},
@@ -283,9 +280,22 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
+            # Filter by Category
+            html.Div(style={**filter_container_style, 'width': '100px', 'minWidth': '100px', 'maxWidth': '101px'}, children=[
+                html.Label('Category:', style={'paddingRight': '0px'}),
+                dcc.Checklist(
+                    id='category-checklist-items',
+                    options=[
+                        {'label': 'Projects', 'value': 'Projects'},
+                        {'label': 'Strategies and Plans', 'value': 'Strategies and Plans'}
+                    ],
+                    value=['Projects'],  # Provide a list with initial values
+                    style={"color": "black"}
+                ),
+            ]),
             # Filter Data by Department
-            html.Div(style=filter_container_style, children=[
-                html.Label('Department:', style={'paddingRight': '10px'}),
+            html.Div(style={**filter_container_style, 'minWidth': '95px','maxWidth': '100px'}, children=[
+                html.Label('Department:', style={'paddingRight': '0px'}),
                 dcc.Checklist(
                     options=[{'label': department, 'value': department} for department in sorted(df['Department'].unique())],
                     value=['FUPP'],  # Default value can be set here
@@ -294,8 +304,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                 ),
             ]),
             # Filter Data by Location
-            html.Div(style=filter_container_style, children=[
-                html.Label('Location:', style={'paddingRight': '10px'}),
+            html.Div(style={**filter_container_style, 'minWidth': '100px','maxWidth': '125px'}, children=[
+                html.Label('Location:', style={'paddingRight': '0px'}),
                 dcc.Checklist(
                     options=[
                         {'label': 'Terminals', 'value': 'Terminals'},
@@ -309,8 +319,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
             ]),
 
             # Filter Data by Type
-            html.Div(style=filter_container_style, children=[
-                html.Label('Type:', style={'paddingRight': '10px'}),
+            html.Div(style={**filter_container_style, 'minWidth': '100px','maxWidth': '170px'}, children=[
+                html.Label('Type:', style={'paddingRight': '0px'}),
                 dcc.Checklist(
                     options=[
                         {'label': 'Building', 'value': 'Building'},
@@ -325,8 +335,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
             ]),
 
             # Filter Data by Tier
-            html.Div(style=filter_container_style, children=[
-                html.Label('Filter by Tier:', style={'paddingRight': '10px'}),
+            html.Div(style={**filter_container_style, 'minWidth': '100px','maxWidth': '124px'}, children=[
+                html.Label('Filter by Tier:', style={'paddingRight': '0px'}),
                 dcc.Checklist(
                     options=[
                         {'label': 'Tier 1', 'value': '1'},
@@ -392,11 +402,18 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
 ])
 
 # Refactored function for filtering DataFrame
-def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages):
+def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_category):
 
+    # Apply Category filter
+    if selected_category == 'Projects':
+        df = df[df['Phase'] != 'Strategies and Plans']
+    elif selected_category == 'Strategies and Plans':
+        df = df[df['Phase'] == 'Strategies and Plans']
+        
     # Apply Department filter
     if selected_departments:
         df = df[df['Department'].isin(selected_departments)]
+
     # Apply Location filter
     if selected_location_categories:
         df = df[df['Location'].isin(selected_location_categories)]
@@ -568,19 +585,18 @@ def toggle_range_slider(fig, n_clicks):
 @app.callback(
     Output('filtered-project-list-checklist', 'options'),
     [
-        Input('department-checklist-items', 'value'), 
+        Input('department-checklist-items', 'value'),
         Input('location-checklist-items', 'value'),
         Input('type-checklist-items', 'value'),
         Input('tier-checklist-items', 'value'),
         Input('stage-checklist-items', 'value'),
-        Input('pm-checklist-items', 'value')
+        Input('pm-checklist-items', 'value'),
+        Input('category-checklist-items', 'value')  # New input for category
     ]
-    #[State('project-list-checklist', 'value')]  # Include the full project list state if needed
 )
-def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_pms):
+def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_pms, selected_category):
     # Perform filtering
-    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages)
-    
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages, selected_category)    
     # Further filter based on selected PMs
     if selected_pms:
         filtered_df = filtered_df[filtered_df['PM'].isin(selected_pms)]
@@ -635,12 +651,13 @@ def get_graph_container_height(selected_projects):
         Input('type-checklist-items', 'value'),
         Input('tier-checklist-items', 'value'),
         Input('stage-checklist-items', 'value'),
+        Input('category-checklist-items', 'value')  # New input for category
         # No need to include the PM checklist itself as an input, to avoid circular updates
     ]
 )
-def update_pm_checklist_options(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages):
+def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_categories):
     # Perform filtering based on the checklist values
-    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages)
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages, selected_categories)
     # Update the PM options based on the filtered dataframe
     pm_options = [{'label': pm, 'value': pm} for pm in sorted(filtered_df['PM'].unique())]
     
@@ -660,17 +677,19 @@ def update_pm_checklist_options(selected_departments, selected_locations, select
         Input('pm-checklist-items', 'value'),
         Input('toggle-slider-button', 'n_clicks'),
         Input('sort-dropdown', 'value'),
-        Input('filtered-project-list-checklist', 'value')  # New input for the filtered project list
+        Input('filtered-project-list-checklist', 'value'),  # New input for the filtered project list
+        Input('category-checklist-items', 'value')  # New input for category
     ]
 )
-def update_graph(color_column, graph_container_height_data, selected_departments, selected_location_categories, selected_types, selected_tiers, selected_stages, selected_pms, n_clicks, sort_column, filtered_projects):
+def update_graph(color_column, graph_container_height_data, selected_departments, selected_location_categories, selected_types, selected_tiers, selected_stages, selected_pms, n_clicks, sort_column, filtered_projects,selected_categories):
 
     # Proceed with filtering if location categories are selected
     if not selected_location_categories:
         return go.Figure()
 
     # Filter the DataFrame based on the selected filters
-    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages)
+    filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_categories)
+    
 
     # Filter based on selected PMs
     if selected_pms:
