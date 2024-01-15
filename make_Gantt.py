@@ -11,15 +11,16 @@ warnings.filterwarnings("ignore")
 
 # Read data from formatted_data.txt with specified encoding
 df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
-                names=["Last Updated Date", "Department", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
+                names=["Last Updated Date", "Category", "Department", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
                 dtype={"Start": "string", "Finish": "string", "Last Updated Date": "string", 
                     "Location": "string", "Type": "string", "Task": "string", 
                     "Phase": "string", "PM": "string", "Tier": "string", "Department":"string"})
 try:
    # Strip leading and trailing spaces from 'Start' and 'Finish' columns
     df['Last Updated Date'] = df['Last Updated Date'].str.strip()
-    df['Location'] = df['Location'].str.strip()
+    df['Category'] = df['Category'].str.strip()
     df['Department'] = df['Department'].str.strip()
+    df['Location'] = df['Location'].str.strip()
     df['Type'] = df['Type'].str.strip()
     df['Task'] = df['Task'].str.strip()
     df['Phase'] = df['Phase'].str.strip()
@@ -286,10 +287,10 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                 dcc.Checklist(
                     id='category-checklist-items',
                     options=[
-                        {'label': 'Projects', 'value': 'Projects'},
+                        {'label': 'Projects', 'value': 'Project'},
                         {'label': 'Strategies and Plans', 'value': 'Strategies and Plans'}
                     ],
-                    value=['Projects'],  # Provide a list with initial values
+                    value=['Project'],  # Provide a list with initial values
                     style={"color": "black"}
                 ),
             ]),
@@ -326,7 +327,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                         {'label': 'Building', 'value': 'Building'},
                         {'label': 'Civil', 'value': 'Civil'},
                         {'label': 'Utilities', 'value': 'Utilities'},
-                        {'label': 'Strategies & Plans', 'value': 'Strategies and Plans'}
+                        #{'label': 'Strategies & Plans', 'value': 'Strategies and Plans'}
                     ],
                     value=['Building', 'Civil'],
                     id='type-checklist-items',
@@ -405,10 +406,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
 def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_category):
 
     # Apply Category filter
-    if selected_category == 'Projects':
-        df = df[df['Phase'] != 'Strategies and Plans']
-    elif selected_category == 'Strategies and Plans':
-        df = df[df['Phase'] == 'Strategies and Plans']
+    if selected_category:
+        df = df[df['Category'].isin(selected_category)]
         
     # Apply Department filter
     if selected_departments:
