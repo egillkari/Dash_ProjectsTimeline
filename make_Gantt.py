@@ -489,7 +489,7 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
     # Create the Plotly timeline
     if color_column == 'PM':
         fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
-                          color="PM", hover_name="Phase",
+                          color="PM", hover_name="Phase", opacity=0.5,
                           hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True},
                           labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager","Department":"Department","Tier":"Tier"},
                           color_discrete_map=pm_colors,  # Use the PM color map
@@ -497,7 +497,7 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
         fig.update_layout(legend=dict(itemclick=False, itemdoubleclick=False))
     else:
         fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
-                          color="Phase", hover_name="PM",
+                          color="Phase", hover_name="PM", opacity=0.5,
                           hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True},
                           labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
                           color_discrete_map=phase_colors,  # Use the Phase color map
