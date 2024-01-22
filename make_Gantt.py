@@ -8,33 +8,29 @@ from datetime import datetime
 import plotly.graph_objs as go
 import warnings
 warnings.filterwarnings("ignore")
+# Set display options to show all columns
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 1000)
+pd.set_option('display.max_colwidth', None)
 
-# Read data from formatted_data.txt with specified encoding
-df = pd.read_csv("formatted_data.txt", encoding='utf-8', header=None,
-                names=["Last Updated Date", "Category", "Department", "Location", "Type", "Task", "Phase", "PM", "Tier", "Start", "Finish"],
-                dtype={"Start": "string", "Finish": "string", "Last Updated Date": "string", 
-                    "Location": "string", "Type": "string", "Task": "string", 
-                    "Phase": "string", "PM": "string", "Tier": "string", "Department":"string"})
+# Read data from the new CSV file with specified encoding
+df = pd.read_csv("formatted_data.csv", encoding='ISO-8859-1', parse_dates=["Start", "Finish", "Last Updated Date"])
+
 try:
-   # Strip leading and trailing spaces from 'Start' and 'Finish' columns
-    df['Last Updated Date'] = df['Last Updated Date'].str.strip()
-    df['Category'] = df['Category'].str.strip()
-    df['Department'] = df['Department'].str.strip()
-    df['Location'] = df['Location'].str.strip()
-    df['Type'] = df['Type'].str.strip()
-    df['Task'] = df['Task'].str.strip()
-    df['Phase'] = df['Phase'].str.strip()
-    df['PM'] = df['PM'].str.strip()    
-    df['Tier'] = df['Tier'].str.strip()
-    df['Start'] = df['Start'].str.strip()
-    df['Finish'] = df['Finish'].str.strip()
-
-    # Convert 'Start' and 'Finish' to datetime
+    # Strip leading and trailing spaces from string columns only
+    string_columns = df.select_dtypes(include=['object']).columns
+    df[string_columns] = df[string_columns].apply(lambda x: x.str.strip())
+    
+    # Replace 'NaN', 'nan', or any other variant with 'Unknown'
+    df.replace({'NaN': 'Unknown', 'nan': 'Unknown', '': 'Unknown'}, inplace=True)
+    # Replace NaN values with 'Unknown' in the entire DataFrame
+    df.fillna('Unknown', inplace=True)
+    # Convert 'Start' and 'Finish' to datetime if not already parsed
     df['Start'] = pd.to_datetime(df['Start'])
     df['Finish'] = pd.to_datetime(df['Finish'])
-
-    # Convert 'Last Updated Date' to datetime
     df['Last Updated Date'] = pd.to_datetime(df['Last Updated Date'])
+
+    # Sort the DataFrame based on 'Start'
     df = df.sort_values(by="Start", ascending=False)
 
     # Aggregate start and finish times for each task and merge
@@ -44,6 +40,8 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
     df = pd.DataFrame()  # Create an empty DataFrame if there's an error
+
+print(f"after reading in data: {df.head()}")  # Debugging statement
 
 # Update the last updated date in the app layout
 last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
@@ -150,8 +148,8 @@ project_options = [{'label': project, 'value': project} for project in sorted(df
 # Options for stages
 stage_options = [{'label': stage, 'value': stage} for stage in df['Phase'].unique()]
 
-# Options for PMs
-pm_options = [{'label': pm, 'value': pm} for pm in sorted(df['PM'].unique())]
+# Replace NaN with 'Unknown' and then sort
+pm_options = [{'label': pm if pd.notna(pm) else 'Unknown', 'value': pm if pd.notna(pm) else 'Unknown'} for pm in sorted(df['PM'].fillna('Unknown').unique())]
 
 # Header layout with title, button, and logos
 header_layout = html.Div([
@@ -229,8 +227,18 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
         html.Summary('Stages:', style={'fontWeight': 'bold'}),
         dcc.Checklist(
             id='stage-checklist-items',
-            options=stage_options,
-            value=[],
+            options=[
+                {'label': 'Stage 6', 'value': 'Stage 6'},
+                {'label': 'Stage 5', 'value': 'Stage 5'},
+                {'label': 'Procurement', 'value': 'Procurement'},
+                {'label': 'Stage 4', 'value': 'Stage 4'},
+                {'label': 'Stage 3', 'value': 'Stage 3'},
+                {'label': 'Stage 2', 'value': 'Stage 2'},
+                {'label': 'Stage 1', 'value': 'Stage 1'},
+                {'label': 'Stage 0', 'value': 'Stage 0'},
+                {'label': 'Strategies and Plans', 'value': 'Strategies and Plans'}
+            ],
+            value=['Stage 5','Procurement','Stage 4', 'Stage 3','Stage 2','Stage 1','Stage 0','Strategies and Plans'],
             style={"color": "black"}
         ),
     ], style=dict(dropdown_details_style, marginRight='10px',maxWidth='115px')),  # Added marginRight for spacing
@@ -320,7 +328,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
             ]),
 
             # Filter Data by Type
-            html.Div(style={**filter_container_style, 'minWidth': '100px','maxWidth': '170px'}, children=[
+            html.Div(style={**filter_container_style, 'minWidth': '85px','maxWidth': '100px'}, children=[
                 html.Label('Type:', style={'paddingRight': '0px'}),
                 dcc.Checklist(
                     options=[
@@ -403,33 +411,51 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
 ])
 
 # Refactored function for filtering DataFrame
+# Refactored function for filtering DataFrame
 def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_category):
+    print("Initial Data Shape:", df.shape)  # Debugging: Print the initial shape of DataFrame
 
     # Apply Category filter
     if selected_category:
         df = df[df['Category'].isin(selected_category)]
-        
+        print("After Category Filter Shape:", df.shape)  # Debugging: Print shape after Category filter
+    
     # Apply Department filter
     if selected_departments:
         df = df[df['Department'].isin(selected_departments)]
+        print("After Department Filter Shape:", df.shape)  # Debugging: Print shape after Department filter
 
     # Apply Location filter
     if selected_location_categories:
         df = df[df['Location'].isin(selected_location_categories)]
+        print("After Location Filter Shape:", df.shape)  # Debugging: Print shape after Location filter
 
     # Apply Type filter
     if selected_types:
         df = df[df['Type'].isin(selected_types)]
+        print("After Type Filter Shape:", df.shape)  # Debugging: Print shape after Type filter
 
+
+    
     # Apply Tier filter
+    # Debug: Print unique values in 'Tier' column
+    print("Unique Tiers in DataFrame:", df['Tier'].unique())    
+    # Convert selected tiers to integers
+    selected_tiers = [int(tier) for tier in selected_tiers]
     if selected_tiers and 'All' not in selected_tiers:
+        # Debug: Print selected_tiers before filtering
+        print("Selected Tiers for Filtering:", selected_tiers)
         df = df[df['Tier'].isin(selected_tiers)]
+        print("After Tier Filter Shape:", df.shape)  # Debugging: Print shape after Tier filter
 
     # Apply Stage filter
     if selected_stages:
         df = df[df['Phase'].isin(selected_stages)]
+        print("After Stage Filter Shape:", df.shape)  # Debugging: Print shape after Stage filter
 
+    print("Final Data Shape:", df.shape)  # Debugging: Print the final shape of DataFrame
     return df
+
 
 
 
@@ -578,8 +604,6 @@ def add_current_date_line(fig):
 # Function to toggle range slider visibility
 def toggle_range_slider(fig, n_clicks):
     fig.update_layout(xaxis_rangeslider_visible=(n_clicks % 2 == 1))
-
-
     
 @app.callback(
     Output('filtered-project-list-checklist', 'options'),
@@ -593,7 +617,9 @@ def toggle_range_slider(fig, n_clicks):
         Input('category-checklist-items', 'value')  # New input for category
     ]
 )
+
 def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_pms, selected_category):
+    print("Callback Triggered: some_callback_function")  # Debugging statement
     # Perform filtering
     filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages, selected_category)    
     # Further filter based on selected PMs
@@ -688,7 +714,8 @@ def update_graph(color_column, graph_container_height_data, selected_departments
 
     # Filter the DataFrame based on the selected filters
     filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_categories)
-    
+    print(f"Filtered Data: {filtered_df.head()}")  # Debugging statement
+
 
     # Filter based on selected PMs
     if selected_pms:
@@ -700,8 +727,11 @@ def update_graph(color_column, graph_container_height_data, selected_departments
 
     # Aggregate and merge data
     filtered_df = aggregate_and_merge_data(filtered_df)
+    print(f"Aggregated and Merged Data: {filtered_df.head()}")  # Debugging statement
+
     # Sort the DataFrame
     sorted_df = sort_dataframe(filtered_df, sort_column)
+    print(f"Sorted Data for Chart: {sorted_df.head()}")  # Debugging statement
 
     # Determine the order of tasks
     task_order = sorted_df['Task'].unique().tolist()
@@ -715,11 +745,13 @@ def update_graph(color_column, graph_container_height_data, selected_departments
     if fig is not None:
         add_current_date_line(fig)
         toggle_range_slider(fig, n_clicks)
+        print("Gantt Chart Created")  # Debugging statement
 
     # If there's no data to display after filtering
     else:
         fig = go.Figure()
         fig.update_layout(title="No Data to Display")
+        print("Gantt Chart is None, no data to display")  # Debugging statement
 
     return fig
 
