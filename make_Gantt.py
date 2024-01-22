@@ -289,7 +289,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
-            
+
             # Filter by Category
             html.Div(style={**filter_container_style, 'width': '100px', 'minWidth': '100px', 'maxWidth': '101px'}, children=[
                 html.Label('Category:', style={'paddingRight': '0px'}),
@@ -499,6 +499,28 @@ def sort_dataframe(filtered_df, sort_column):
         sorted_df = filtered_df.sort_values(by=sort_column, ascending=False, na_position='first')
     return sorted_df.reset_index(drop=True)
 
+def create_roles_info(df):
+    # Define the roles we are interested in
+    roles = ['PML', 'DM', 'PM1', 'PM2']
+    
+    # Initialize the 'RolesInfo' column with empty strings
+    df['RolesInfo'] = ''
+    
+    for index, row in df.iterrows():
+        roles_info_list = []
+        for role in roles:
+            # Check if the role column is not NaN and not 'Unknown'
+            if pd.notna(row[role]) and row[role] != 'Unknown':
+                # Append the role info to the list
+                roles_info_list.append(f"{role}: {row[role]}")
+        
+        # Join all the role info strings with a space
+        df.at[index, 'RolesInfo'] = ' '.join(roles_info_list)
+    
+    return df
+
+# Apply the function to the DataFrame
+df = create_roles_info(df)
 
 # Function to create Gantt Chart
 def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_colors, graph_container_height):
@@ -519,16 +541,16 @@ def create_gantt_chart(sorted_df, color_column, task_order, pm_colors, phase_col
     if color_column == 'PM':
         fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
                           color="PM", hover_name="Phase", opacity=0.7,
-                          hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True},
-                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager","Department":"Department","Tier":"Tier"},
+                          hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True, 'RolesInfo': True},
+                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager","Department":"Department","Tier":"Tier","RolesInfo":"PM Roles"},
                           color_discrete_map=pm_colors,  # Use the PM color map
                           category_orders={"Task": task_order})  # Specify the order of tasks
         fig.update_layout(legend=dict(itemclick=False, itemdoubleclick=False))
     else:
         fig = px.timeline(sorted_df, x_start="Start", x_end="Finish", y="Task",
                           color="Phase", hover_name="PM", opacity=0.7,
-                          hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True},
-                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager"},
+                          hover_data={ 'Task': False, 'Phase': True,'Department': True, 'PM': False, 'Location': True, 'Type': True, 'Tier': True, 'RolesInfo': True},
+                          labels={"Task": "Projects", "Phase": "Project Phase", "PM": "Project Manager","Department":"Department","Tier":"Tier","RolesInfo":"Roles"},
                           color_discrete_map=phase_colors,  # Use the Phase color map
                           category_orders={"Task": task_order})  # Specify the order of tasks
         fig.update_layout(showlegend=False)
@@ -729,9 +751,14 @@ def update_graph(color_column, graph_container_height_data, selected_departments
     #print(f"Filtered Data: {filtered_df.head()}")  # Debugging statement
 
 
-    # Filter based on selected PMs
+    # Filter based on selected PMs (include PM, PML, DM, PM1, PM2)
     if selected_pms:
-        filtered_df = filtered_df[filtered_df['PM'].isin(selected_pms)]
+        pm_filter = (filtered_df['PM'].isin(selected_pms) | 
+                     filtered_df['PML'].isin(selected_pms) | 
+                     filtered_df['DM'].isin(selected_pms) | 
+                     filtered_df['PM1'].isin(selected_pms) | 
+                     filtered_df['PM2'].isin(selected_pms))
+        filtered_df = filtered_df[pm_filter]
 
     # Further filter the dataframe based on selected projects from the filtered checklist
     if filtered_projects:
