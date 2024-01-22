@@ -1,6 +1,6 @@
 # Import packages
 from dash import Dash, html, dcc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 import pandas as pd
 import plotly.express as px
@@ -41,7 +41,7 @@ except Exception as e:
     print(f"An error occurred: {e}")
     df = pd.DataFrame()  # Create an empty DataFrame if there's an error
 
-print(f"after reading in data: {df.head()}")  # Debugging statement
+#print(f"after reading in data: {df.head()}")  # Debugging statement
 
 # Update the last updated date in the app layout
 last_updated_date_str = df['Last Updated Date'].max().strftime("%Y-%m-%d") if not df.empty else "N/A"
@@ -76,7 +76,7 @@ pm_colors = {
     'Hartmann Rúnarsson': '#15aebf',     # Powder Blue
     'Siggi Kristó': '#4988bf',   # Pink
     'Bjarni Jakob': '#f5d698',   # 
-    'xx': '#cfcfcf'   # 
+    'Unknown': '#cfcfcf'   # 
 }
 
 # Get current date
@@ -236,7 +236,7 @@ select_options_layout = html.Div(style={'paddingRight': '10px', 'display': 'inli
                 {'label': 'Stage 2', 'value': 'Stage 2'},
                 {'label': 'Stage 1', 'value': 'Stage 1'},
                 {'label': 'Stage 0', 'value': 'Stage 0'},
-                {'label': 'Strategies and Plans', 'value': 'Strategies and Plans'}
+                #{'label': 'Strategies and Plans', 'value': 'Strategies and Plans'}
             ],
             value=['Stage 5','Procurement','Stage 4', 'Stage 3','Stage 2','Stage 1','Stage 0','Strategies and Plans'],
             style={"color": "black"}
@@ -289,6 +289,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
+            
             # Filter by Category
             html.Div(style={**filter_container_style, 'width': '100px', 'minWidth': '100px', 'maxWidth': '101px'}, children=[
                 html.Label('Category:', style={'paddingRight': '0px'}),
@@ -302,6 +303,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
+
             # Filter Data by Department
             html.Div(style={**filter_container_style, 'minWidth': '95px','maxWidth': '100px'}, children=[
                 html.Label('Department:', style={'paddingRight': '0px'}),
@@ -312,6 +314,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
+
             # Filter Data by Location
             html.Div(style={**filter_container_style, 'minWidth': '100px','maxWidth': '125px'}, children=[
                 html.Label('Location:', style={'paddingRight': '0px'}),
@@ -335,9 +338,8 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                         {'label': 'Building', 'value': 'Building'},
                         {'label': 'Civil', 'value': 'Civil'},
                         {'label': 'Utilities', 'value': 'Utilities'},
-                        #{'label': 'Strategies & Plans', 'value': 'Strategies and Plans'}
                     ],
-                    value=['Building', 'Civil'],
+                    value=['Building', 'Civil','Utilities'],
                     id='type-checklist-items',
                     style={"color": "black"}
                 ),
@@ -357,6 +359,7 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
                     style={"color": "black"}
                 ),
             ]),
+
             # Sorting dropdown
             html.Div(style={
                     'display': 'flex',
@@ -413,47 +416,47 @@ app.layout = html.Div(style={'backgroundColor': 'white', 'color': '#101010', 'fo
 # Refactored function for filtering DataFrame
 # Refactored function for filtering DataFrame
 def filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_category):
-    print("Initial Data Shape:", df.shape)  # Debugging: Print the initial shape of DataFrame
+    #print("Initial Data Shape:", df.shape)  # Debugging: Print the initial shape of DataFrame
 
     # Apply Category filter
     if selected_category:
         df = df[df['Category'].isin(selected_category)]
-        print("After Category Filter Shape:", df.shape)  # Debugging: Print shape after Category filter
+        #print("After Category Filter Shape:", df.shape)  # Debugging: Print shape after Category filter
     
     # Apply Department filter
     if selected_departments:
         df = df[df['Department'].isin(selected_departments)]
-        print("After Department Filter Shape:", df.shape)  # Debugging: Print shape after Department filter
+        #print("After Department Filter Shape:", df.shape)  # Debugging: Print shape after Department filter
 
     # Apply Location filter
     if selected_location_categories:
         df = df[df['Location'].isin(selected_location_categories)]
-        print("After Location Filter Shape:", df.shape)  # Debugging: Print shape after Location filter
+        #print("After Location Filter Shape:", df.shape)  # Debugging: Print shape after Location filter
 
     # Apply Type filter
     if selected_types:
         df = df[df['Type'].isin(selected_types)]
-        print("After Type Filter Shape:", df.shape)  # Debugging: Print shape after Type filter
+        #print("After Type Filter Shape:", df.shape)  # Debugging: Print shape after Type filter
 
 
     
     # Apply Tier filter
     # Debug: Print unique values in 'Tier' column
-    print("Unique Tiers in DataFrame:", df['Tier'].unique())    
+    #print("Unique Tiers in DataFrame:", df['Tier'].unique())    
     # Convert selected tiers to integers
     selected_tiers = [int(tier) for tier in selected_tiers]
     if selected_tiers and 'All' not in selected_tiers:
         # Debug: Print selected_tiers before filtering
-        print("Selected Tiers for Filtering:", selected_tiers)
+        #print("Selected Tiers for Filtering:", selected_tiers)
         df = df[df['Tier'].isin(selected_tiers)]
-        print("After Tier Filter Shape:", df.shape)  # Debugging: Print shape after Tier filter
+        #print("After Tier Filter Shape:", df.shape)  # Debugging: Print shape after Tier filter
 
     # Apply Stage filter
     if selected_stages:
         df = df[df['Phase'].isin(selected_stages)]
-        print("After Stage Filter Shape:", df.shape)  # Debugging: Print shape after Stage filter
+        #print("After Stage Filter Shape:", df.shape)  # Debugging: Print shape after Stage filter
 
-    print("Final Data Shape:", df.shape)  # Debugging: Print the final shape of DataFrame
+    #print("Final Data Shape:", df.shape)  # Debugging: Print the final shape of DataFrame
     return df
 
 
@@ -666,7 +669,17 @@ def get_graph_container_height(selected_projects):
     height_per_project = 25
     dynamic_height = max(min_height, len(selected_projects) * height_per_project)
     return {"height": dynamic_height}
-
+# Callback to update the checklist value
+@app.callback(
+    Output('stage-checklist-items', 'value'),
+    [Input('stage-checklist-items', 'value')],
+    [State('stage-checklist-items', 'value')]
+)
+def ensure_strategies_and_plans(selected_stages, current_value):
+    # Ensure 'Strategies and Plans' is always included in the value
+    if 'Strategies and Plans' not in selected_stages:
+        selected_stages.append('Strategies and Plans')
+    return selected_stages
 
 @app.callback(
     Output('pm-checklist-items', 'options'),
@@ -707,14 +720,13 @@ def update_filtered_project_checklist(selected_departments, selected_locations, 
     ]
 )
 def update_graph(color_column, graph_container_height_data, selected_departments, selected_location_categories, selected_types, selected_tiers, selected_stages, selected_pms, n_clicks, sort_column, filtered_projects,selected_categories):
-
     # Proceed with filtering if location categories are selected
     if not selected_location_categories:
         return go.Figure()
 
     # Filter the DataFrame based on the selected filters
     filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_location_categories, selected_types, selected_stages, selected_categories)
-    print(f"Filtered Data: {filtered_df.head()}")  # Debugging statement
+    #print(f"Filtered Data: {filtered_df.head()}")  # Debugging statement
 
 
     # Filter based on selected PMs
@@ -727,11 +739,11 @@ def update_graph(color_column, graph_container_height_data, selected_departments
 
     # Aggregate and merge data
     filtered_df = aggregate_and_merge_data(filtered_df)
-    print(f"Aggregated and Merged Data: {filtered_df.head()}")  # Debugging statement
+    #print(f"Aggregated and Merged Data: {filtered_df.head()}")  # Debugging statement
 
     # Sort the DataFrame
     sorted_df = sort_dataframe(filtered_df, sort_column)
-    print(f"Sorted Data for Chart: {sorted_df.head()}")  # Debugging statement
+    #print(f"Sorted Data for Chart: {sorted_df.head()}")  # Debugging statement
 
     # Determine the order of tasks
     task_order = sorted_df['Task'].unique().tolist()
@@ -745,13 +757,13 @@ def update_graph(color_column, graph_container_height_data, selected_departments
     if fig is not None:
         add_current_date_line(fig)
         toggle_range_slider(fig, n_clicks)
-        print("Gantt Chart Created")  # Debugging statement
+        #print("Gantt Chart Created")  # Debugging statement
 
     # If there's no data to display after filtering
     else:
         fig = go.Figure()
         fig.update_layout(title="No Data to Display")
-        print("Gantt Chart is None, no data to display")  # Debugging statement
+        #print("Gantt Chart is None, no data to display")  # Debugging statement
 
     return fig
 
