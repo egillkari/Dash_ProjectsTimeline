@@ -22,9 +22,9 @@ try:
     df[string_columns] = df[string_columns].apply(lambda x: x.str.strip())
     
     # Replace 'NaN', 'nan', or any other variant with 'Unknown'
-    df.replace({'NaN': 'Unknown', 'nan': 'Unknown', '': 'Unknown'}, inplace=True)
+    df.replace({'NaN': 'Unknown PM', 'nan': 'Unknown PM', '': 'Unknown PM'}, inplace=True)
     # Replace NaN values with 'Unknown' in the entire DataFrame
-    df.fillna('Unknown', inplace=True)
+    df.fillna('Unknown PM', inplace=True)
     # Convert 'Start' and 'Finish' to datetime if not already parsed
     df['Start'] = pd.to_datetime(df['Start'])
     df['Finish'] = pd.to_datetime(df['Finish'])
@@ -76,7 +76,7 @@ pm_colors = {
     'Hartmann Rúnarsson': '#15aebf',     # Powder Blue
     'Siggi Kristó': '#4988bf',   # Pink
     'Bjarni Jakob': '#f5d698',   # 
-    'Unknown': '#cfcfcf'   # 
+    'Unknown PM': '#cfcfcf'   # 
 }
 
 # Get current date
@@ -514,7 +514,7 @@ def create_roles_info(df):
         roles_info_list = []
         for role in roles:
             # Check if the role column is not NaN and not 'Unknown'
-            if pd.notna(row[role]) and row[role] != 'Unknown':
+            if pd.notna(row[role]) and row[role] != 'Unknown PM':
                 # Append the role info to the list
                 roles_info_list.append(f"{role}: {row[role]}")
         
@@ -648,7 +648,7 @@ def toggle_range_slider(fig, n_clicks):
 )
 
 def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_pms, selected_category):
-    print("Callback Triggered: some_callback_function")  # Debugging statement
+    print("Callback Triggered: update_filtered_project_checklist")  # Debugging statement
     # Perform filtering
     filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages, selected_category)    
     # Further filter based on selected PMs
@@ -725,14 +725,12 @@ def update_filtered_project_checklist(selected_departments, selected_locations, 
 
     # Combine all PM related columns into a single Series and remove 'Unknown'
     all_pm_names = pd.Series(pd.concat([filtered_df['PM'], filtered_df['PML'], filtered_df['DM'], filtered_df['PM1'], filtered_df['PM2']], ignore_index=True))
-    all_pm_names = all_pm_names[all_pm_names != 'Unknown'].unique()
+    all_pm_names = all_pm_names.unique()
 
     # Sort and create dropdown options
     pm_options = [{'label': pm, 'value': pm} for pm in sorted(all_pm_names) if pd.notna(pm)]
 
     return pm_options
-
-
 
 @app.callback(
     Output('gantt-chart-placeholder', 'figure'),
@@ -768,6 +766,11 @@ def update_graph(color_column, graph_container_height_data, selected_departments
                      filtered_df['DM'].isin(selected_pms) | 
                      filtered_df['PM1'].isin(selected_pms) | 
                      filtered_df['PM2'].isin(selected_pms))
+        filtered_df = filtered_df[pm_filter]
+
+    if 'Unknown PM' in selected_pms:
+        pm_filter = (filtered_df['PM'] == 'Unknown PM')
+        selected_pms = [pm for pm in selected_pms if pm != 'Unknown PM']  # Remove 'Unknown PM' from the list for further processing
         filtered_df = filtered_df[pm_filter]
 
     # Further filter the dataframe based on selected projects from the filtered checklist
