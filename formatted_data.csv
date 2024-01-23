@@ -107,21 +107,21 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Terminals,Building,EW - Baggage Arrivals,Stage 6,2,Andy Stevenson,Andy Stevenson,nan,nan,nan,15-Jun-23,24-Jul-23
 2023-12-12,Project,FUPP,Terminals,Building,EW - Baggage Arrivals,Stage 6,2,Andy Stevenson,Andy Stevenson,nan,nan,nan,28-Sep-23,25-Oct-23
 2023-12-12,Project,FUPP,Terminals,Building,SSA20 - EES Stand 6,Procurement,2,,,,,,01-Aug-21,19-Nov-21
-2023-12-12,Project,FUPP,Terminals,Building,SSA20 - EES Stand 6,Stage 5,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,20-Sep-21,14-Jul-23
-2023-12-12,Project,FUPP,Terminals,Building,SSA20 - EES Stand 6,Stage 6,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,23-Dec-22,01-Nov-24
+2023-12-12,Project,FUPP,Terminals,Building,SSA20 - EES Stand 6,Stage 5,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,20-Sep-21,14-Jul-23
+2023-12-12,Project,FUPP,Terminals,Building,SSA20 - EES Stand 6,Stage 6,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,23-Dec-22,01-Nov-24
 2023-12-12,Project,FUPP,Terminals,Building,SSA21 - Stand 10,Procurement,2,,,,,,12-Nov-21,12-Oct-23
-2023-12-12,Project,FUPP,Terminals,Building,SSA21 - Stand 10,Stage 5,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,18-Apr-22,09-Oct-25
-2023-12-12,Project,FUPP,Terminals,Building,SSA21 - Stand 10,Stage 6,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,09-Apr-24,09-Oct-25
+2023-12-12,Project,FUPP,Terminals,Building,SSA21 - Stand 10,Stage 5,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,18-Apr-22,09-Oct-25
+2023-12-12,Project,FUPP,Terminals,Building,SSA21 - Stand 10,Stage 6,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,09-Apr-24,09-Oct-25
 2023-12-12,Project,FUPP,Terminals,Building,SLN18 - East Wing,Procurement,1,,,,,,04-Jan-21,01-Jun-23
-2023-12-12,Project,FUPP,Terminals,Building,SLN18 - East Wing,Stage 5,1,Hartmann Rúnarsson,Hartmann Rúnarsson,nan,nan,nan,04-Jan-21,02-Sep-24
-2023-12-12,Project,FUPP,Terminals,Building,SLN18 - East Wing,Stage 6,1,Hartmann Rúnarsson,Hartmann Rúnarsson,nan,nan,nan,27-Jul-23,16-Sep-24
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 3,1,Mark Bradley,Mark Bradley,nan,nan,nan,31-Oct-22,18-Jun-24
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 3,1,Mark Bradley,Mark Bradley,nan,nan,nan,26-Apr-24,26-Apr-24
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 4,1,Mark Bradley,Mark Bradley,nan,nan,nan,19-Jun-24,17-Jun-25
+2023-12-12,Project,FUPP,Terminals,Building,SLN18 - East Wing,Stage 5,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,Ívar Orri Þorsteinsson,Ragnar Ragnarsson,04-Jan-21,02-Sep-24
+2023-12-12,Project,FUPP,Terminals,Building,SLN18 - East Wing,Stage 6,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,Ívar Orri Þorsteinsson,Ragnar Ragnarsson,27-Jul-23,16-Sep-24
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 3,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,31-Oct-22,18-Jun-24
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 3,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,26-Apr-24,26-Apr-24
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 4,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,19-Jun-24,17-Jun-25
 2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Procurement,1,,,,,,20-Sep-22,03-Dec-25
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 5,1,Mark Bradley,Mark Bradley,nan,nan,nan,01-Aug-23,10-Apr-30
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 5,1,Mark Bradley,Mark Bradley,nan,nan,nan,05-Jun-25,13-May-26
-2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 6,1,Mark Bradley,Mark Bradley,nan,nan,nan,22-Dec-28,10-Apr-30
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 5,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,01-Aug-23,10-Apr-30
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 5,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,05-Jun-25,13-May-26
+2023-12-12,Project,FUPP,Terminals,Building,SLN21 - SE,Stage 6,1,Hartmann Rúnarsson,Hartmann Rúnarsson,Piotr,nan,nan,22-Dec-28,10-Apr-30
 2023-12-12,Project,FUPP,Terminals,Building,Duty Free,Procurement,3,,,,,,02-May-23,15-Sep-23
 2023-12-12,Project,FUPP,Terminals,Building,Duty Free,Stage 5,3,nan,nan,nan,nan,nan,10-Jul-23,12-Apr-24
 2023-12-12,Project,FUPP,Terminals,Building,Customs Hall,Stage 3,3,nan,nan,nan,nan,nan,20-Apr-26,15-Dec-26
@@ -149,8 +149,8 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Terminals,Building,New North Terminal,Stage 5,1,nan,nan,nan,nan,nan,09-Feb-34,01-Oct-38
 2023-12-12,Project,FUPP,Terminals,Building,New North Terminal,Stage 6,1,nan,nan,nan,nan,nan,01-Oct-38,29-Oct-38
 2023-12-12,Project,FUPP,Terminals,Building,Office Space EW,Procurement,3,,,,,,20-Mar-24,15-Oct-24
-2023-12-12,Project,FUPP,Terminals,Building,Office Space EW,Stage 5,3,Ivar O,Ivar O,nan,nan,nan,22-Apr-24,14-Nov-25
-2023-12-12,Project,FUPP,Terminals,Building,Office Space EW,Stage 6,3,Ivar O,Ivar O,nan,nan,nan,20-Oct-25,14-Nov-25
+2023-12-12,Project,FUPP,Terminals,Building,Office Space EW,Stage 5,3,Hartmann Rúnarsson,Hartmann Rúnarsson,Ívar Orri Þorsteinsson,nan,nan,22-Apr-24,14-Nov-25
+2023-12-12,Project,FUPP,Terminals,Building,Office Space EW,Stage 6,3,Ivar O,Ivar O,Ívar Orri Þorsteinsson,nan,nan,20-Oct-25,14-Nov-25
 2023-12-12,Project,FUPP,Terminals,Building,DAL23 - Isavia Office Space DAL,Stage 5,3,nan,nan,nan,nan,nan,26-Oct-23,31-Jan-24
 2023-12-12,Project,FUPP,Terminals,Building,Isavia Office Space KEF,Stage 3,3,nan,nan,nan,nan,nan,20-Nov-23,20-Aug-24
 2023-12-12,Project,FUPP,Terminals,Building,Isavia Office Space KEF,Stage 4,3,nan,nan,nan,nan,nan,21-Aug-24,20-May-25
@@ -165,8 +165,8 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Terminals,Building,MSCP - Connection,Procurement,2,,,,,,20-Nov-23,26-Jan-24
 2023-12-12,Project,FUPP,Terminals,Building,MSCP - Connection,Stage 5,2,nan,nan,nan,nan,nan,22-Jan-25,15-Jul-26
 2023-12-12,Project,FUPP,Airfield,Civil,NPE21 - Taxiway Mike & RET 10,Procurement,2,,,,,,14-Jun-21,13-May-22
-2023-12-12,Project,FUPP,Airfield,Civil,NPE21 - Taxiway Mike & RET 10,Stage 5,2,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,08-Nov-21,14-Jul-23
-2023-12-12,Project,FUPP,Airfield,Civil,NPE21 - Taxiway Mike & RET 10,Stage 6,2,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,14-Jul-23,21-Jul-23
+2023-12-12,Project,FUPP,Airfield,Civil,NPE21 - Taxiway Mike & RET 10,Stage 5,2,Ingvar Baldursson,Ingvar Baldursson,nan,Sigurður Kristófersson,nan,08-Nov-21,14-Jul-23
+2023-12-12,Project,FUPP,Airfield,Civil,NPE21 - Taxiway Mike & RET 10,Stage 6,2,Ingvar Baldursson,Ingvar Baldursson,nan,Sigurður Kristófersson,nan,14-Jul-23,21-Jul-23
 2023-12-12,Project,FUPP,Airfield,Civil,NTA22 - SLN & East Pier Apron,Procurement,2,,,,,,04-Apr-22,18-May-22
 2023-12-12,Project,FUPP,Airfield,Civil,NTA22 - SLN & East Pier Apron,Procurement,2,,,,,,04-Apr-22,18-May-22
 2023-12-12,Project,FUPP,Airfield,Civil,NTA22 - SLN & East Pier Apron,Stage 5,2,Ingvar Baldursson,Ingvar Baldursson,nan,Guttormur Guttormsson,Friðleifur Kristjánsson,31-Jan-22,08-Feb-24
@@ -185,7 +185,7 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Airfield,Civil,SFA16 F - Fuel Remote Stands,Procurement,2,,,,,,05-Feb-24,23-Feb-24
 2023-12-12,Project,FUPP,Airfield,Civil,SFA16 F - Fuel Remote Stands,Stage 5,2,Guttormur Guttormsson,Guttormur Guttormsson,nan,nan,nan,26-Feb-24,03-Jun-25
 2023-12-12,Project,FUPP,Airfield,Civil,SFA16 SP - Settlement Pond,Procurement,2,,,,,,26-Apr-23,14-Jul-23
-2023-12-12,Project,FUPP,Airfield,Civil,SFA16 SP - Settlement Pond,Stage 5,2,Sigurður Jens,Sigurður Jens,nan,nan,nan,17-Jul-23,21-May-24
+2023-12-12,Project,FUPP,Airfield,Civil,SFA16 SP - Settlement Pond,Stage 5,2,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,17-Jul-23,21-May-24
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Bravo,Stage 3,1,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,22-Jan-24,17-Sep-24
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Bravo,Stage 4,1,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,18-Sep-24,17-Jun-25
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Bravo,Procurement,1,,,,,,18-Jun-25,03-Dec-25
@@ -194,10 +194,10 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Airfield,Civil,De-Icing,Stage 4,1,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,20-May-26,16-Feb-27
 2023-12-12,Project,FUPP,Airfield,Civil,De-Icing,Procurement,1,,,,,,17-Feb-27,13-Aug-27
 2023-12-12,Project,FUPP,Airfield,Civil,De-Icing,Stage 5,1,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,16-Aug-27,11-May-29
-2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 3,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,17-Feb-27,19-Oct-27
-2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 4,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,20-Oct-27,18-Jul-28
+2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 3,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,17-Feb-27,19-Oct-27
+2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 4,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,20-Oct-27,18-Jul-28
 2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Procurement,2,,,,,,19-Jul-28,17-Jan-29
-2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 5,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,17-Mar-26,17-Apr-29
+2023-12-12,Project,FUPP,Airfield,Utilities,COM23 - INT COM Site,Stage 5,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,17-Mar-26,17-Apr-29
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Sierra Tango,Stage 3,2,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,17-Feb-27,19-Oct-27
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Sierra Tango,Stage 4,2,Ingvar Baldursson,Ingvar Baldursson,nan,nan,nan,20-Oct-27,18-Jul-28
 2023-12-12,Project,FUPP,Airfield,Civil,Taxiway Sierra Tango,Procurement,2,,,,,,19-Jul-28,17-Jan-29
@@ -214,52 +214,52 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Airfield,Civil,NAL25 - New Approach Lights 19,Stage 4,2,Andy Stevenson,Andy Stevenson,nan,nan,nan,16-Nov-23,19-Mar-24
 2023-12-12,Project,FUPP,Airfield,Civil,NAL25 - New Approach Lights 19,Procurement,2,,,,,,20-Mar-24,24-May-24
 2023-12-12,Project,FUPP,Airfield,Civil,NAL25 - New Approach Lights 19,Stage 5,2,Andy Stevenson,Andy Stevenson,nan,nan,nan,24-May-24,05-Oct-27
-2023-12-12,Project,MOI,Airfield,Civil,MTE23 - Taxiway Maintenance Echo 1,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,20-Nov-23,31-Jan-24
+2023-12-12,Project,MOI,Airfield,Civil,MTE23 - Taxiway Maintenance Echo 1,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,20-Nov-23,31-Jan-24
 2023-12-12,Project,MOI,Airfield,Civil,MTE23 - Taxiway Maintenance Echo 1,Procurement,3,,,,,,01-Feb-24,27-Mar-24
-2023-12-12,Project,MOI,Airfield,Civil,MTE23 - Taxiway Maintenance Echo 1,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,02-Apr-24,01-Jul-24
-2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 3,3,Daniel H,Daniel H,nan,nan,nan,06-Aug-24,07-Oct-24
-2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,08-Oct-24,20-Dec-24
+2023-12-12,Project,MOI,Airfield,Civil,MTE23 - Taxiway Maintenance Echo 1,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,02-Apr-24,01-Jul-24
+2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 3,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,06-Aug-24,07-Oct-24
+2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,08-Oct-24,20-Dec-24
 2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Procurement,3,,,,,,23-Dec-24,05-Mar-25
-2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,15-Jul-24,02-Jun-25
-2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 3,3,Sigurður Kristo,Sigurður Kristo,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 4,3,Sigurður Kristo,Sigurður Kristo,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,MTN24 - Taxiway Maintenance Nov 1 2 3,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,15-Jul-24,02-Jun-25
+2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 3,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 4,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 5,3,Sigurður Kristo,Sigurður Kristo,nan,nan,nan,02-May-24,30-Sep-27
-2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 3,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,17-Feb-27,19-Oct-27
-2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 4,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,20-Oct-27,18-Jul-28
+2023-12-12,Project,FUPP,Airfield,Civil,MTS23 - Taxiway Maintenance Sierra,Stage 5,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,02-May-24,30-Sep-27
+2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 3,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,17-Feb-27,19-Oct-27
+2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 4,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,20-Oct-27,18-Jul-28
 2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Procurement,2,,,,,,19-Jul-28,17-Jan-29
-2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 5,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,05-May-25,17-Apr-29
-2023-12-12,Project,MOI,Airfield,Civil,Taxiway Kilo Stop Bar To RW 10,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,04-Nov-24,22-Jan-25
+2023-12-12,Project,FUPP,Airfield,Civil,SAA21 - Taxiway K3 & K4,Stage 5,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,05-May-25,17-Apr-29
+2023-12-12,Project,MOI,Airfield,Civil,Taxiway Kilo Stop Bar To RW 10,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,04-Nov-24,22-Jan-25
 2023-12-12,Project,MOI,Airfield,Civil,Taxiway Kilo Stop Bar To RW 10,Procurement,3,,,,,,23-Jan-25,19-Mar-25
-2023-12-12,Project,MOI,Airfield,Civil,Taxiway Kilo Stop Bar To RW 10,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,20-Mar-25,23-May-25
-2023-12-12,Project,MOI,Airfield,Civil,RST10 - Runway Strip 10,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,04-Nov-24,22-Jan-25
+2023-12-12,Project,MOI,Airfield,Civil,Taxiway Kilo Stop Bar To RW 10,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,20-Mar-25,23-May-25
+2023-12-12,Project,MOI,Airfield,Civil,RST10 - Runway Strip 10,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,04-Nov-24,22-Jan-25
 2023-12-12,Project,MOI,Airfield,Civil,RST10 - Runway Strip 10,Procurement,3,,,,,,23-Jan-25,19-Mar-25
-2023-12-12,Project,MOI,Airfield,Civil,RST10 - Runway Strip 10,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,20-Mar-24,04-Apr-25
-2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 3,3,Daniel H,Daniel H,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,RST10 - Runway Strip 10,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,20-Mar-24,04-Apr-25
+2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 3,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,12-Jun-24,07-Sep-28
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 3,3,Hilmar J,Hilmar J,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 4,3,Hilmar J,Hilmar J,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,NATO Arrestor Systems to Runways,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,12-Jun-24,07-Sep-28
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 3,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 4,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 5,3,Hilmar J,Hilmar J,nan,nan,nan,03-Jun-24,24-Dec-25
-2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,04-Mar-24,15-Mar-24
-2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 4,3,Daniel H,Daniel H,nan,nan,nan,02-Sep-24,13-Sep-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of signs at Keflavik Airport,Stage 5,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,03-Jun-24,24-Dec-25
+2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,04-Mar-24,15-Mar-24
+2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 4,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,02-Sep-24,13-Sep-24
 2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Procurement,3,,,,,,18-Mar-24,25-Oct-24
-2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,06-May-24,25-Jun-25
-2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 3,3,Hilmar J,Hilmar J,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 4,3,Hilmar J,Hilmar J,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,Apron Maintenance,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,06-May-24,25-Jun-25
+2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 3,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 4,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 5,3,Hilmar J,Hilmar J,nan,nan,nan,01-Feb-24,06-Sep-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 3,3,Hilmar J,Hilmar J,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 4,3,Hilmar J,Hilmar J,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,Backup power for 40 and 70 remote stands,Stage 5,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,01-Feb-24,06-Sep-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 3,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 4,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 5,3,Hilmar J,Hilmar J,nan,nan,nan,02-May-24,01-Sep-25
-2023-12-12,Project,MOI,Airfield,Civil,Preventive Maintenance Asphalt,Stage 5,3,Daniel H,Daniel H,nan,nan,nan,12-Aug-24,21-Jun-27
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 3,3,Hilmar J,Hilmar J,nan,nan,nan,20-Nov-23,02-Feb-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 4,3,Hilmar J,Hilmar J,nan,nan,nan,05-Feb-24,10-Apr-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of floodlighting fo BIKF,Stage 5,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,02-May-24,01-Sep-25
+2023-12-12,Project,MOI,Airfield,Civil,Preventive Maintenance Asphalt,Stage 5,3,Daníel Hólmgrímsson,Daníel Hólmgrímsson,nan,nan,nan,12-Aug-24,21-Jun-27
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 3,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,20-Nov-23,02-Feb-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 4,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,05-Feb-24,10-Apr-24
 2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Procurement,3,,,,,,11-Apr-24,11-Jun-24
-2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 5,3,Hilmar J,Hilmar J,nan,nan,nan,12-Feb-24,06-Sep-24
+2023-12-12,Project,MOI,Airfield,Civil,Renewal of the RCMS system in the tower,Stage 5,3,Hilmar Jónsson,Hilmar Jónsson,nan,nan,nan,12-Feb-24,06-Sep-24
 2023-12-12,Project,FUPP,Airfield,Utilities,Foul Water - Storm Water,Stage 3,3,nan,nan,nan,nan,nan,03-Feb-25,21-Oct-25
 2023-12-12,Project,FUPP,Airfield,Utilities,Foul Water - Storm Water,Stage 4,3,nan,nan,nan,nan,nan,22-Oct-25,21-Jul-26
 2023-12-12,Project,FUPP,Airfield,Utilities,Foul Water - Storm Water,Procurement,3,,,,,,22-Jul-26,21-Jan-27
@@ -269,23 +269,23 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Airfield,Utilities,Watermains,Procurement,2,,,,,,22-Oct-25,29-Apr-26
 2023-12-12,Project,FUPP,Airfield,Utilities,Watermains,Stage 5,2,nan,nan,nan,nan,nan,30-Apr-26,10-Aug-27
 2023-12-12,Project,FUPP,Landside,Civil,Service Road,Procurement,3,,,,,,17-May-21,22-Oct-21
-2023-12-12,Project,FUPP,Landside,Civil,Service Road,Stage 5,3,Siggi Kristo,Siggi Kristo,nan,nan,nan,02-Jun-21,05-Aug-22
+2023-12-12,Project,FUPP,Landside,Civil,Service Road,Stage 5,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,02-Jun-21,05-Aug-22
 2023-12-12,Project,FUPP,Landside,Civil,Covered Walkways,Procurement,3,,,,,,31-Jan-24,30-May-24
-2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 3,3,Siggi Kristo,Siggi Kristo,nan,nan,nan,22-Jan-24,17-Sep-24
-2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 4,3,Siggi Kristo,Siggi Kristo,nan,nan,nan,18-Sep-24,17-Jun-25
+2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 3,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,22-Jan-24,17-Sep-24
+2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 4,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,18-Sep-24,17-Jun-25
 2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Procurement,3,,,,,,18-Jun-25,03-Dec-25
-2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 5,3,Siggi Kristo,Siggi Kristo,nan,nan,nan,04-Dec-25,30-Apr-26
-2023-12-12,Project,FUPP,Landside,Civil,FPR23 - Forecourt Parking Relocation,Stage 3,3,Sigurður Jens,Sigurður Jens,nan,nan,nan,21-Aug-23,19-Mar-24
+2023-12-12,Project,FUPP,Landside,Civil,NTHV21 - New Service Road,Stage 5,3,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,04-Dec-25,30-Apr-26
+2023-12-12,Project,FUPP,Landside,Civil,FPR23 - Forecourt Parking Relocation,Stage 3,3,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,21-Aug-23,19-Mar-24
 2023-12-12,Project,FUPP,Landside,Civil,FPR23 - Forecourt Parking Relocation,Procurement,3,,,,,,20-Mar-24,23-May-24
-2023-12-12,Project,FUPP,Landside,Civil,FPR23 - Forecourt Parking Relocation,Stage 5,3,Sigurður Jens,Sigurður Jens,nan,nan,nan,31-May-23,07-Oct-24
-2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 3,3,Sigurður Jens,Sigurður Jens,nan,nan,nan,01-Feb-24,16-Apr-24
-2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 4,3,Sigurður Jens,Sigurður Jens,nan,nan,nan,17-Apr-24,16-Jul-24
+2023-12-12,Project,FUPP,Landside,Civil,FPR23 - Forecourt Parking Relocation,Stage 5,3,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,31-May-23,07-Oct-24
+2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 3,3,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,01-Feb-24,16-Apr-24
+2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 4,3,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,17-Apr-24,16-Jul-24
 2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Procurement,3,,,,,,17-Jul-24,11-Sep-24
-2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 5,3,Sigurður Jens,Sigurður Jens,nan,nan,nan,12-Sep-24,14-Aug-25
-2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 3,2,Sigurður Jens,Sigurður Jens,nan,nan,nan,20-Mar-24,19-Nov-24
-2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 4,2,Sigurður Jens,Sigurður Jens,nan,nan,nan,20-Nov-24,19-Aug-25
+2023-12-12,Project,FUPP,Landside,Civil,RRR23 - Ringroad and Roundabout,Stage 5,3,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,12-Sep-24,14-Aug-25
+2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 3,2,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,20-Mar-24,19-Nov-24
+2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 4,2,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,20-Nov-24,19-Aug-25
 2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Procurement,2,,,,,,20-Aug-25,19-Feb-26
-2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 5,2,Sigurður Jens,Sigurður Jens,nan,nan,nan,20-Feb-26,10-Mar-27
+2023-12-12,Project,FUPP,Landside,Building,Onward Travel Hub & Bikepit,Stage 5,2,Sigurður Jens Sigurðsson,Sigurður Jens Sigurðsson,nan,nan,nan,20-Feb-26,10-Mar-27
 2023-12-12,Project,FUPP,Landside,Civil,Logistics Compound & Training Centre,Stage 3,2,nan,nan,nan,nan,nan,19-Jun-26,16-Feb-27
 2023-12-12,Project,FUPP,Landside,Civil,Logistics Compound & Training Centre,Stage 4,2,nan,nan,nan,nan,nan,17-Feb-27,19-Oct-27
 2023-12-12,Project,FUPP,Landside,Civil,Logistics Compound & Training Centre,Procurement,2,,,,,,20-Oct-27,24-Apr-28
@@ -302,10 +302,10 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Landside,Civil,Re-location of Landside Functions on EW North Apron,Stage 4,2,nan,nan,nan,nan,nan,20-Oct-27,18-Jul-28
 2023-12-12,Project,FUPP,Landside,Civil,Re-location of Landside Functions on EW North Apron,Procurement,2,,,,,,19-Jul-28,17-Jan-29
 2023-12-12,Project,FUPP,Landside,Civil,Re-location of Landside Functions on EW North Apron,Stage 5,2,nan,nan,nan,nan,nan,01-Jul-32,14-Mar-33
-2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 3,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,17-Feb-27,19-Oct-27
-2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 4,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,20-Oct-27,18-Jul-28
+2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 3,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,17-Feb-27,19-Oct-27
+2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 4,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,20-Oct-27,18-Jul-28
 2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Procurement,2,,,,,,19-Jul-28,17-Jan-29
-2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 5,2,Bjarni Jakob,Bjarni Jakob,nan,nan,nan,18-Jan-29,08-Jan-30
+2023-12-12,Project,FUPP,Landside,Building,Silver Gate,Stage 5,2,Bjarni Jakob Gunnarsson,Bjarni Jakob Gunnarsson,nan,nan,nan,18-Jan-29,08-Jan-30
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P1,Stage 3,1,nan,nan,nan,nan,nan,24-May-24,15-Oct-24
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P1,Stage 4,1,nan,nan,nan,nan,nan,16-Oct-24,18-Mar-25
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P1,Procurement,1,,,,,,20-Mar-24,23-May-24
@@ -320,7 +320,7 @@ Last Updated Date,Category,Department,Location,Type,Task,Phase,Tier,PM,PML,DM,PM
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P3,Stage 3,1,nan,nan,nan,nan,nan,18-Mar-24,20-Aug-24
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P3,Stage 4,1,nan,nan,nan,nan,nan,21-Aug-24,21-Jan-25
 2023-12-12,Project,FUPP,Landside,Building,MSCP - P3,Stage 5,1,nan,nan,nan,nan,nan,29-Dec-32,01-May-34
-2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 3,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,22-Jan-24,17-Sep-24
-2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 4,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,18-Sep-24,17-Jun-25
+2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 3,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,22-Jan-24,17-Sep-24
+2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 4,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,18-Sep-24,17-Jun-25
 2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Procurement,2,,,,,,18-Jun-25,03-Dec-25
-2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 5,2,Siggi Kristo,Siggi Kristo,nan,nan,nan,04-Dec-25,31-Mar-27
+2023-12-12,Project,FUPP,Landside,Utilities,SVI22 - Substation Voltage Increase,Stage 5,2,Sigurður Kristófersson,Sigurður Kristófersson,nan,nan,nan,04-Dec-25,31-Mar-27
