@@ -148,8 +148,12 @@ project_options = [{'label': project, 'value': project} for project in sorted(df
 # Options for stages
 stage_options = [{'label': stage, 'value': stage} for stage in df['Phase'].unique()]
 
-# Replace NaN with 'Unknown' and then sort
-pm_options = [{'label': pm if pd.notna(pm) else 'Unknown', 'value': pm if pd.notna(pm) else 'Unknown'} for pm in sorted(df['PM'].fillna('Unknown').unique())]
+# Combine all PM related columns into a single Series and remove 'Unknown'
+all_pm_names = pd.Series(pd.concat([df['PM'], df['PML'], df['DM'], df['PM1'], df['PM2']], ignore_index=True))
+all_pm_names = all_pm_names[all_pm_names != 'Unknown'].unique()
+
+# Sort and create dropdown options
+pm_options = [{'label': pm, 'value': pm} for pm in sorted(all_pm_names) if pd.notna(pm)]
 
 # Header layout with title, button, and logos
 header_layout = html.Div([
@@ -718,10 +722,16 @@ def ensure_strategies_and_plans(selected_stages, current_value):
 def update_filtered_project_checklist(selected_departments, selected_locations, selected_types, selected_tiers, selected_stages, selected_categories):
     # Perform filtering based on the checklist values
     filtered_df = filter_dataframe(df, selected_departments, selected_tiers, selected_locations, selected_types, selected_stages, selected_categories)
-    # Update the PM options based on the filtered dataframe
-    pm_options = [{'label': pm, 'value': pm} for pm in sorted(filtered_df['PM'].unique())]
-    
+
+    # Combine all PM related columns into a single Series and remove 'Unknown'
+    all_pm_names = pd.Series(pd.concat([filtered_df['PM'], filtered_df['PML'], filtered_df['DM'], filtered_df['PM1'], filtered_df['PM2']], ignore_index=True))
+    all_pm_names = all_pm_names[all_pm_names != 'Unknown'].unique()
+
+    # Sort and create dropdown options
+    pm_options = [{'label': pm, 'value': pm} for pm in sorted(all_pm_names) if pd.notna(pm)]
+
     return pm_options
+
 
 
 @app.callback(
